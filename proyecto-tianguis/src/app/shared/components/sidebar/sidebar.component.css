@@ -1,0 +1,18 @@
+#sidebar {
+  height: 100vh;
+  width: 250px;
+  border-radius: 10px;
+  border: 0px solid rgb(139, 12, 224);
+}
+
+#sidebarBg {
+  height: 105vh;
+  width: 285px;
+  border-radius: 10px;
+  background: rgb(19,0,36);
+  background: linear-gradient(133deg, rgba(19,0,36,1) 0%, rgba(80,9,121,1) 35%, rgba(0,134,255,1) 100%);
+}
+
+#fijar {
+  position: fixed;
+}

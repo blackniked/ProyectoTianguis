@@ -1,0 +1,29 @@
+<div *ngIf="!oculto">
+  <div  id="fijar" class="ocultar-div" >
+    <div class="border-right p-3" id="sidebarBg">
+    <div class=" bg-dark border-right p-3" id="sidebar">
+
+      <div class="d-flex justify-content-between">
+
+        <h3 class="text-light"> EzMarket </h3>
+        <button type="button" (click)="ocultarSidebar()" class="btn btn-primary">Ocultar</button>
+
+      </div>
+
+  <hr class="text-white">
+
+
+  <div class="list-group list-reset">
+
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+</div>
+
+
+<button *ngIf="oculto" type="button" (click)="mostrarSidebar()" class="btn btn-primary">Mostrar</button>
+<!-- <button pButton pRipple type="button" label="Secondary" class="p-button-secondary"></button>
+<p-button>kk</p-button> -->
