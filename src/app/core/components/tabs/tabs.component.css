@@ -1,0 +1,26 @@
+#container{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    height: 70px;
+}
+
+.tab{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 200ms ease-in-out;
+}
+
+svg{
+    display: block;
+    margin: auto;
+    transition: 200ms ease-in-out;
+}
+
+.seleccionado{
+    background-color: aquamarine ;
+}
