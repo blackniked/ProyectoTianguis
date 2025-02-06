@@ -1,11 +1,18 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { HeaderService } from '../../../core/services/header.service';
 
 @Component({
   selector: 'app-buscar',
   standalone: true,
   imports: [],
-  template: `<p>buscar works!</p>`,
+  templateUrl: './buscar.component.html',
   styleUrl: './buscar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BuscarComponent { }
+export class BuscarComponent { 
+    headerService = inject(HeaderService);
+  
+    ngOnInit(): void {
+      this.headerService.titulo.set("Buscar");
+    }
+}

@@ -1,0 +1,55 @@
+header{
+    position: relative;
+    height: 80px;
+    background-color: rgb(193, 45, 75);
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: 500ms ease-in-out;
+}
+
+header::before{
+    position: absolute;
+    content: "";
+    background-image: url("./../../../../assets/img/frutass.jpg"); 
+    background-position: center;
+    background-size: cover;
+    border-radius: 0 0 15px 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+   z-index: -1;
+}
+
+h1{
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.extendido{
+    height: 250px;
+    background-color: unset;
+}
+
+.fade-in{
+    animation: fade-out 450ms ease-in;
+    animation-direction: reverse;
+}
+.fade-out{
+    animation: fade-out 250ms ease-in;
+    animation-fill-mode: forwards;
+}
+
+
+
+@keyframes fade-out{
+   
+    100%{
+        opacity: 0%;
+    }
+   
+}
