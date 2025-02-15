@@ -1,11 +1,12 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
-import { HomePageComponent } from './tianguis-app/pages/home/home-page/home-page.component';
-import { LoginComponent } from './tianguis-app/pages/Login/login/login.component';
-import { PerfilComponent } from './tianguis-app/pages/perfil/perfil.component';
-import { CarritoComponent } from './tianguis-app/pages/carrito/carrito.component';
-import { TabsComponent } from './core/components/tabs/tabs.component';
-import { BuscarComponent } from './tianguis-app/pages/buscar/buscar.component';
+import { HomePageComponent } from './pages/home/home-page/home-page.component';
+import { LoginComponent } from './pages/Login/login/login.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
+
 //import { routes } from './app.routes';
 
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {path: 'perfil', component: PerfilComponent},
   {path: 'carrito', component: CarritoComponent},
   {path: 'buscar', component: BuscarComponent},
+  {path: 'categoria/:id', component: CategoriaComponent},
 ];
 
 export const appConfig: ApplicationConfig = {
