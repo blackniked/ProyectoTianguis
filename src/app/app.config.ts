@@ -6,6 +6,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { ArticuloComponent } from './pages/articulo/articulo.component';
 
 //import { routes } from './app.routes';
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {path: 'carrito', component: CarritoComponent},
   {path: 'buscar', component: BuscarComponent},
   {path: 'categoria/:id', component: CategoriaComponent},
+  {path: 'articulo/:id', component: ArticuloComponent},
 ];
 
 export const appConfig: ApplicationConfig = {

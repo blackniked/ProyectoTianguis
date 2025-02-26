@@ -1,0 +1,20 @@
+<img id="fotoProducto" src="{{producto?.fotoUrl}}" alt="{{producto?.nombre}}">
+<div class="margen-chico"> 
+<ul>
+    <span>Ingredientes: </span>
+        <li *ngFor="let ingrediente of producto?.ingredientes">{{ingrediente}}</li>
+    </ul>
+    <div>
+        <!-- <img src="./../../../assets/icons/buscar.svg" alt="vegano"> -->
+
+    </div>
+
+    <label for="notas">Notas:</label>
+    <textarea name="notas" id="notas" cols="30" rows="10"></textarea>
+    <div id="cantidad-container">
+    <label for="cantidad">Cantidad:</label>
+    <app-contador-cantidad (cantidadCambiada)="cantidad.set($event)"></app-contador-cantidad>
+    </div>
+    <button (click)="agregarAlCarrito()">Agregar al carrito</button>
+
+</div>

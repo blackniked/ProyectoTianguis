@@ -8,6 +8,6 @@ export class HeaderService {
   constructor() { }
 
   //titulo:string = "Titulo";   "asi era antes pero es mejor usar signal"
-titulo = signal("Titulo");
+titulo = signal("");
 extendido = signal(false);
 }
