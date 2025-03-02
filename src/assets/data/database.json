@@ -13,25 +13,25 @@
       {
         "id": "1",
         "nombre":"Hamburguesa con queso",
-        "precio": 0,
+        "precio": 150,
         "esVegano":false,
         "esCeliaco":false,
         "ingredientes": ["Carne de ternera","Pan Brioche","Queso"],
-        "fotoUrl": "https://quem.com.ar/tienda/wp-content/uploads/2020/12/Grandwich_17-10_-061.jp"
+        "fotoUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/5b57547a8825f9fac531c7c39ab1e00e/Derivates/1536354e54be6f02ff4b3e9ede6e8e7ea487ab3d.jpg"
       },
       {
         "id": "2",
         "nombre":"Hamburguesa especial",
-        "precio": 0,
+        "precio": 200,
         "esVegano":false,
         "esCeliaco":false,
         "ingredientes": ["Carne de ternera","Pan Brioche","Queso", "Tomate", "Lechuga"],
-        "fotoUrl": "https://elsheriffburger.com/uploads/lh90_elsheriffbuger/products/54/es/img-H.-Especial-5-WEB-de-taman%CC%83o-mediano.jpg"
+        "fotoUrl": "https://sabor.eluniverso.com/wp-content/uploads/2023/09/2hqq-1024x778.jpg"
       },
       {
         "id": "3",
         "nombre":"Hamburguesa vegana",
-        "precio": 0,
+        "precio": 175,
         "esVegano":true,
         "esCeliaco":false,
         "ingredientes": ["Medallón a base de lentejas","Pan Brioche","Tomate"],
@@ -40,7 +40,7 @@
       {
         "id": "4",
         "nombre":"Hamburguesa celíaca",
-        "precio": 0,
+        "precio": 200,
         "esVegano":false,
         "esCeliaco":true,
         "ingredientes": ["Carne de ternera","Pan libre de tacc","Queso"],
@@ -49,7 +49,7 @@
       {
         "id": "5",
         "nombre":"Hamburguesa americana",
-        "precio": 0,
+        "precio": 220,
         "esVegano":false,
         "esCeliaco":false,
         "ingredientes": ["Carne de ternera","Pan Brioche","Queso","Salsa secreta BBQ", "Panceta"],
@@ -58,7 +58,7 @@
       {
         "id": "6",
         "nombre":"Medallón platero",
-        "precio": 0,
+        "precio": 180,
         "esVegano":true,
         "esCeliaco":true,
         "ingredientes": ["Medallón a base de lentejas","Tomate","Lechuga"],
