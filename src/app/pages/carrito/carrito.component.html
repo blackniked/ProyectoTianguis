@@ -11,7 +11,7 @@
                 <button id="borrar" (click)="eliminarProducto(producto.idProducto)">
                 <img src="./../../../assets/icons/borrar.svg" alt="borrar">
                 </button>
-            <p class="negrita">{{productosCarrito[i].precio}}</p> 
+            <p class="negrita">${{productosCarrito[i].precio}}</p> 
         </div>
     </ng-container>
   </div>
@@ -25,8 +25,14 @@
     <h3>Dirección de envío</h3>
     <div class="flex-apart" id="envios-container">
         <div>
-        <h4> Calle Falsa 64</h4>
-        <p> Colonial tlaquepaque, Tlaquepaque 45570</p>
+            <ng-container *ngIf="perfilService.perfil(), else sinDatosEnvio">
+            <h4> {{perfilService.perfil()!.nombre}}</h4>
+            <p> {{perfilService.perfil()!.direccion}} - {{perfilService.perfil()?.telefono}}</p>
+            <p> {{perfilService.perfil()!.detalleEntrega}}</p>
+            </ng-container>
+            <ng-template #sinDatosEnvio>
+                <p> Ingresa tus datos de envío</p> 
+            </ng-template>
         </div>
         <div class="imagen-editar">
             <a [routerLink]="['/perfil']" routerLinkActive="router-link-active" > 

@@ -1,6 +1,6 @@
-interface Perfil {
+export interface Perfil {
     nombre: string,
     direccion: string,
-    detalleEntraga: string,
+    detalleEntrega: string,
     telefono?: string,
 }
