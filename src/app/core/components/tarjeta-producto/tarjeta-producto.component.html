@@ -3,10 +3,8 @@
     <div id="detalles">
     <h4>{{producto.nombre}}</h4>
     <ul>
-        <li *ngFor="let ingrediente of producto.ingredientes">
-            {{ingrediente}}
-        </li>
+        <li *ngFor="let descripcion of producto?.descripciones?.split(',')"> {{descripcion}} </li>
     </ul>
-    <p id="precio">${{producto.precio}}</p>
+    <p id="precio">$ {{producto.precio}}</p>
 </div>
 </div>

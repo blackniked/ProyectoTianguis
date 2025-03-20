@@ -9,8 +9,20 @@ export class CarritoService {
   constructor() {
    const cart = localStorage.getItem("carrito");
    if(cart) {
-    this.carrito = JSON.parse(cart);
-   }
+    const carritoGuardado = JSON.parse(cart);
+    if(carritoGuardado){
+      const fechaGuardado = new Date(carritoGuardado.fecha);
+      const fecha = new Date();
+      const dias = 4 //Dias de vencimiento del carrito
+      if(fecha.getTime() - fechaGuardado.getTime() > 1000*60*60*24*dias){
+        localStorage.removeItem("carrito");
+      }else{
+        this.carrito = carritoGuardado.productos;
+      }
+       
+     }
+    
+    }
    }
 
   carrito: Carrito[] = []
@@ -40,7 +52,17 @@ cambiarCantidadProducto(idProducto:number, cantidad: number){
 }
 
 actualizarAlmacenamiento(){
-  localStorage.setItem("carrito",JSON.stringify(this.carrito));
+  const fecha = new Date();
+  const elementoAGuardar = {
+    fecha,
+    productos:this.carrito
+  }
+  localStorage.setItem("carrito",JSON.stringify(elementoAGuardar));
 }
 
+
+vaciar(){
+  this.carrito = [];
+  localStorage.clear();
+}
 }

@@ -1,87 +1,73 @@
 [
   {
     "id": 1,
-    "nombre": "Pizzas",
-    "fotoUrl": "https://www.laespanolaaceites.com/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso-1080x671.jpg",
+    "nombre": "Verduras",
+    "fotoUrl": "https://thefoodtech.com/wp-content/uploads/2022/06/VERDURAS-Y-HORTALIZAS.jpg",
     "productos": []
   },
   {
     "id": 2,
-    "nombre": "Hamburguesas",
-    "fotoUrl": "https://img.freepik.com/vector-gratis/hamburguesa-realista-sobre-fondo-pizarra_79603-1042.jpg?w=2000",
+    "nombre": "Frutas",
+    "fotoUrl": "https://www.dreamfoodscaribe.com/wp-content/uploads/2023/11/frutas-dulces.webp",
     "productos": [
       {
         "id": "1",
-        "nombre":"Hamburguesa con queso",
-        "precio": 150,
-        "esVegano":false,
-        "esCeliaco":false,
-        "ingredientes": ["Carne de ternera","Pan Brioche","Queso"],
-        "fotoUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/5b57547a8825f9fac531c7c39ab1e00e/Derivates/1536354e54be6f02ff4b3e9ede6e8e7ea487ab3d.jpg"
+        "nombre":"Manzana Gala",
+        "precio": 45,
+        "descripciones": "Manzana roja, de un sabor dulce y suave",
+        "fotoUrl": "https://www.lacomer.com.mx/superc/img_art/1038_3.jpg"
       },
       {
         "id": "2",
-        "nombre":"Hamburguesa especial",
-        "precio": 200,
-        "esVegano":false,
-        "esCeliaco":false,
-        "ingredientes": ["Carne de ternera","Pan Brioche","Queso", "Tomate", "Lechuga"],
-        "fotoUrl": "https://sabor.eluniverso.com/wp-content/uploads/2023/09/2hqq-1024x778.jpg"
+        "nombre":"Manzana verde",
+        "precio": 40,
+        "descripciones": "Manzana verde, de un sabor dulce y acido",
+        "fotoUrl": "https://elegifruta.com.ar/wp-content/uploads/2017/05/Manzana-verde1g-min.jpg"
       },
       {
         "id": "3",
-        "nombre":"Hamburguesa vegana",
-        "precio": 175,
-        "esVegano":true,
-        "esCeliaco":false,
-        "ingredientes": ["Medallón a base de lentejas","Pan Brioche","Tomate"],
-        "fotoUrl": "https://www.pequerecetas.com/wp-content/uploads/2009/04/hamburguesa-de-garbanzos-casera-receta.jpg"
+        "nombre":"Uva verde",
+        "precio": 50,
+        "descripciones": "Uva verde sin semillas, de un sabor dulce y suave",
+        "fotoUrl": "https://www.tucanaldesalud.es/idcsalud-client/cm/images?locale=es_ES&idMmedia=1451959"
       },
       {
         "id": "4",
-        "nombre":"Hamburguesa celíaca",
-        "precio": 200,
-        "esVegano":false,
-        "esCeliaco":true,
-        "ingredientes": ["Carne de ternera","Pan libre de tacc","Queso"],
-        "fotoUrl": "https://www.perez-h.com/newsite/wp-content/uploads/2016/06/queso-2.jpg"
+        "nombre":"Platano Chiapas",
+        "precio": 20,
+        "descripciones": "Platano convencional con un exquisito sabor",
+        "fotoUrl": "https://imagenes.eltiempo.com/files/image_1200_535/uploads/2024/01/24/65b12a4deee83.png"
       },
       {
         "id": "5",
-        "nombre":"Hamburguesa americana",
-        "precio": 220,
-        "esVegano":false,
-        "esCeliaco":false,
-        "ingredientes": ["Carne de ternera","Pan Brioche","Queso","Salsa secreta BBQ", "Panceta"],
-        "fotoUrl": "https://www.clarin.com/img/2022/05/27/0HXb0UR0v_2000x1500__1.jpg"
+        "nombre":"Naranja",
+        "precio": 35,
+        "fotoUrl": "https://www.gob.mx/cms/uploads/article/main_image/115793/NARANJAS_Mesa_de_trabajo_1.jpg"
       },
       {
         "id": "6",
-        "nombre":"Medallón platero",
-        "precio": 180,
-        "esVegano":true,
-        "esCeliaco":true,
-        "ingredientes": ["Medallón a base de lentejas","Tomate","Lechuga"],
-        "fotoUrl": "https://canalcocina.es/medias/images/1010_Coc_RecetasDeAnnie_HamburguesaQueso.jpg"
+        "nombre":"Kiwi",
+        "precio": 60,
+        "fotoUrl": "https://imagenes.20minutos.es/files/image_990_556/files/fp/uploads/imagenes/2022/10/17/kiwis.r_d.600-315.jpeg"
       }
     ]
   },
   {
     "id": 3,
-    "nombre": "Postres",
-    "fotoUrl": "https://www.recetasnestle.com.ar/sites/default/files/2023-03/postre-en-vaso-dulce-leche.jpg.jpg",
+    "nombre": "Botanas",
+    "fotoUrl": "https://www.superaki.mx/cdn/shop/collections/BOTANAS.jpg?v=1644603279",
     "productos": []
   },
   {
     "id": 4,
-    "nombre": "Bebidas",
-    "fotoUrl": "https://img.band.uol.com.br/image/2023/02/09/bebidas-alcoolicas-181014_800x450.webp",
+    "nombre": "Carnes",
+    "fotoUrl": "https://www.kronen.eu/fileadmin/_processed_/7/5/csm_meat-fish-kronen-processing-machines_shutterstock_1920px_6ea5045a6e.jpg",
     "productos": []
   },
   {
     "id": 5,
-    "nombre": "Combos",
-    "fotoUrl": "https://i-ticketing.iwos.com/1000x1000-th/products/220/products_220_2.png",
+    "nombre": "Frutos secos",
+    "fotoUrl": "https://dspclaherradura.com.mx/wp-content/uploads/2021/09/Beneficios-de-los-Frutos-Secos-para-los-Ninos.jpg",
     "productos": []
   },
   {
