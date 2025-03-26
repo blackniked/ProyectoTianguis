@@ -9,7 +9,7 @@
             <app-contador-cantidad [cantidadInicial]="producto.cantidad" (cantidadCambiada)="cambiarCantidadProducto(producto.idProducto, $event)"></app-contador-cantidad>
         </div>
         <div id="der"> 
-                <button id="borrar" (click)="eliminarProducto(producto.idProducto)">
+                <button id="borrar" (click)="eliminarProducto(producto.idProducto);calcularInformacion()">
                 <img src="./../../../assets/icons/borrar.svg" alt="borrar">
                 </button>
             <p class="negrita">${{productosCarrito()[i].precio}}</p> 
