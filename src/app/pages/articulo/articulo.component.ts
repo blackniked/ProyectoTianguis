@@ -31,7 +31,7 @@ export class ArticuloComponent {
 
     constructor(private ac:ActivatedRoute, private router: Router){
       ac.params.subscribe(param => {
-        console.log(param)
+       // console.log(param)
         if(param['id']){
           this.productosService.getById(param['id']).then (producto => {
             this.producto = producto;

@@ -43,7 +43,7 @@ export class ProductosService {
       //if(parametros.aptoVegano && !producto.esVegano) return false;
     
       const busquedaTitulo = producto.nombre.toLowerCase().includes(parametros.texto.toLowerCase());
-      console.log(busquedaTitulo)
+     // console.log(busquedaTitulo)
       if(busquedaTitulo) return true;
     for (let i = 0; i < producto.descripciones.length; i++) {
       const descripcion = producto.descripciones[i];

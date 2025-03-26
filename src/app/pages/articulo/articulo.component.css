@@ -30,8 +30,14 @@ textarea{
   border: unset;
   background-color: antiquewhite;
   margin-top: 10px;
+  margin-left: 20px;
   width: 100%;
   resize: none;
+  width: calc(100% - 30px);
+  padding: 15px;
+  &:focus{
+    outline: none;
+  }
 }
 
 #cantidad-container{
@@ -47,4 +53,9 @@ button{
   background-color: antiquewhite;
   font-size: larger;
   padding: 10px;
+}
+
+#negrita{
+  font-weight: bold;
+  margin: 10px 0;
 }

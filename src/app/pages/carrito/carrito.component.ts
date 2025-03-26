@@ -34,13 +34,20 @@ total = 0;
 
   ngOnInit(): void {
     this.headerService.titulo.set("Carrito");
-    //Aqui obtenemos los datos para los productos del carrito
-    this.carritoService.carrito.forEach(async itemCarrito =>{
-      const res = await this.productosService.getById(itemCarrito.idProducto)
-      if(res) this.productosCarrito.set([...this.productosCarrito(), res]);
-      this.calcularInformacion();
-    })
+    //Busqueda de la informacion, espera con el then para calcular
+   this.buscarInformacionProductos().then(()=>{
+    this.calcularInformacion();
+   });
   }
+
+  async buscarInformacionProductos(){
+ //Aqui obtenemos los datos para los productos del carrito
+ for (let i = 0; i < this.carritoService.carrito.length; i++) {
+  const itemCarrito = this.carritoService.carrito[i];
+  const res = await this.productosService.getById(itemCarrito.idProducto)
+  if(res) this.productosCarrito.set([...this.productosCarrito(), res]);
+  }
+}
 
   eliminarProducto(idProducto:number){
     this.carritoService.eliminarProducto(idProducto);

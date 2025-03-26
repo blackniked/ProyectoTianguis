@@ -15,7 +15,7 @@ export class CarritoService {
       const fecha = new Date();
       const dias = 4 //Dias de vencimiento del carrito
       if(fecha.getTime() - fechaGuardado.getTime() > 1000*60*60*24*dias){
-        localStorage.removeItem("carrito");
+        this.vaciar();
       }else{
         this.carrito = carritoGuardado.productos;
       }
@@ -39,7 +39,7 @@ agregarProducto(idProducto:number, cantidad: number, notas:string){
 }
 eliminarProducto(idProducto:number){
   this.carrito = this.carrito.filter(producto => producto.idProducto !== idProducto);
-  if(this.carrito.length === 0) return localStorage.clear();
+  if(this.carrito.length === 0) return localStorage.removeItem("carrito");
   this.actualizarAlmacenamiento();
 }
 cambiarCantidadProducto(idProducto:number, cantidad: number){
@@ -63,6 +63,6 @@ actualizarAlmacenamiento(){
 
 vaciar(){
   this.carrito = [];
-  localStorage.clear();
+  localStorage.removeItem("carrito");
 }
 }
