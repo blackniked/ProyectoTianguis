@@ -1,0 +1,45 @@
+#container{
+    height: 80px;
+    display: flex;
+    background-color: rgb(193, 45, 75);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#foto{
+    height: 100%;
+    width: 25%;
+    background-size: cover;
+    flex: 2;
+    background-position: center;
+}
+
+#detalles{
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+h4{
+    font-weight: bold;
+    font-size: small;
+    margin-bottom: 5px;
+}
+
+ul li {
+    display: inline;
+    font-size: x-small;
+    &:not(:last-of-type)::after{
+        content: ",";
+        margin-left: -2px;
+    }
+}
+
+#precio{
+    font-size: small;
+    text-align: end;
+    font-weight: bold;
+}
+

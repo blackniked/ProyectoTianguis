@@ -1,0 +1,21 @@
+#container{
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+button{
+    border:unset;
+    font-weight: bold;
+    background-color: antiquewhite;
+}
+
+span{
+    line-height: 40px;
+    font-weight: bold;
+}

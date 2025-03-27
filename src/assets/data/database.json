@@ -1,0 +1,248 @@
+[
+  {
+    "id": 1,
+    "nombre": "Verduras",
+    "fotoUrl": "https://thefoodtech.com/wp-content/uploads/2022/06/VERDURAS-Y-HORTALIZAS.jpg",
+    "productos": [
+      {
+      "id": "1",
+      "nombre":"Calabacita",
+      "precio": 20,
+      "descripciones": "Calabacita tierna, de rapida coccion.",
+      "fotoUrl": "https://i.blogs.es/eb4b87/como-hacer-calabacitas-con-queso-1-/450_1000.jpg"
+    },
+    {
+      "id": "2",
+      "nombre":"Jitomate",
+      "precio": 25,
+      "descripciones": "Jitomate rojo, ideal para rebanar o hacer salsa.",
+      "fotoUrl": "https://i2.wp.com/lopezdoriga.com/wp-content/uploads/2017/02/jitomate.jpg?fit=680%2C510&ssl=1"
+    },
+    {
+      "id": "3",
+      "nombre":"Zanahoria",
+      "precio": 15,
+      "descripciones": "Zanahoria de un tamano estandar, sabor dulce.",
+      "fotoUrl": "https://comefruta.es/wp-content/uploads/zanahoria.-beneficios-de-la-zanahora-que-no-conoc%C3%ADas-1440x703.jpg"
+    },
+    {
+      "id": "4",
+      "nombre":"Chayote",
+      "precio": 30,
+      "descripciones": "Chayote verde, tierno y sin espinas.",
+      "fotoUrl": "https://static.plataformatierra.es/strapi-uploads/assets/web_chayote_plato2_8eb988757c.jpg"
+    },
+    {
+      "id": "5",
+      "nombre":"Tomate verde",
+      "precio": 18,
+      "descripciones": "Tomate de hoja, en su punto.",
+      "fotoUrl": "https://pacifex.com.mx/storage/blog/159/original/GZzosUmGe4tLF3luUIloukGXtaGSMA5FltHN8AYL.jpg"
+    },
+    {
+      "id": "6",
+      "nombre":"Cebolla blanca",
+      "precio": 16,
+      "descripciones": "Cebolla blanca, de un tamano promedio.",
+      "fotoUrl": "https://http2.mlstatic.com/D_NQ_NP_844172-MLM43775677897_102020-O.webp"
+    }]
+  },
+  {
+    "id": 2,
+    "nombre": "Frutas",
+    "fotoUrl": "https://www.dreamfoodscaribe.com/wp-content/uploads/2023/11/frutas-dulces.webp",
+    "productos": [
+      {
+        "id": "7",
+        "nombre":"Manzana Gala",
+        "precio": 45,
+        "descripciones": "Manzana roja, de un sabor dulce y suave",
+        "fotoUrl": "https://www.lacomer.com.mx/superc/img_art/1038_3.jpg"
+      },
+      {
+        "id": "8",
+        "nombre":"Manzana verde",
+        "precio": 40,
+        "descripciones": "Manzana verde, de un sabor dulce y acido",
+        "fotoUrl": "https://elegifruta.com.ar/wp-content/uploads/2017/05/Manzana-verde1g-min.jpg"
+      },
+      {
+        "id": "9",
+        "nombre":"Uva verde",
+        "precio": 50,
+        "descripciones": "Uva verde sin semillas, de un sabor dulce y suave",
+        "fotoUrl": "https://www.prensalibre.com/wp-content/uploads/2024/05/close-up-grapes-seasonal-fruit-winter.jpg?quality=52&w=640"
+      },
+      {
+        "id": "10",
+        "nombre":"Platano Chiapas",
+        "precio": 20,
+        "descripciones": "Platano convencional con un exquisito sabor",
+        "fotoUrl": "https://imagenes.eltiempo.com/files/image_1200_535/uploads/2024/01/24/65b12a4deee83.png"
+      },
+      {
+        "id": "11",
+        "nombre":"Naranja",
+        "precio": 35,
+        "fotoUrl": "https://www.gob.mx/cms/uploads/article/main_image/115793/NARANJAS_Mesa_de_trabajo_1.jpg"
+      },
+      {
+        "id": "12",
+        "nombre":"Kiwi",
+        "precio": 60,
+        "fotoUrl": "https://imagenes.20minutos.es/files/image_990_556/files/fp/uploads/imagenes/2022/10/17/kiwis.r_d.600-315.jpeg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Botanas",
+    "fotoUrl": "https://www.superaki.mx/cdn/shop/collections/BOTANAS.jpg?v=1644603279",
+    "productos": [
+      {
+      "id": "13",
+      "nombre":"Papa dorada",
+      "precio": 52,
+      "descripciones": "Bolsa con 150gr de papa dorada en aceite.",
+      "fotoUrl": "https://balu.com.mx/wp-content/uploads/2025/03/PAPA-DOR-150-2.png"
+    },
+    {
+      "id": "14",
+      "nombre":"Tostadas",
+      "precio": 35,
+      "descripciones": "Tostada frita con sal.",
+      "fotoUrl": "https://images.radio-canada.ca/q_auto,w_952/v1/alimentation/ingredient/4x3/tostadas-mais.jpg"
+    },
+    {
+      "id": "15",
+      "nombre":"Taco dorado de papa",
+      "precio": 5,
+      "descripciones": "Taco dorado en aceite con relleno de papa",
+      "fotoUrl": "https://www.cardamomo.news/img/2022/06/21/tacos_de_papa.png?__scale=w:480,h:270,t:2"
+    },
+    {
+      "id": "16",
+      "nombre":"Churros de rueda",
+      "precio": 25,
+      "descripciones": "Churritos de harina en forma de rueda",
+      "fotoUrl": "https://www.barriocampo.com/cdn/shop/products/Frituradeharinatrigominirueda.jpg?v=1587326851"
+    },
+    {
+      "id": "17",
+      "nombre":"Chicharron",
+      "precio": 35,
+      "descripciones": "Bolsa con 200gr de chicharron",
+      "fotoUrl": "https://cdnx.jumpseller.com/la-familia-avilena-envios/image/21232750/chicharrones.jpg?1655852635"
+    },
+    {
+      "id": "18",
+      "nombre":"Platano frito",
+      "precio": 36,
+      "descripciones": "Bolsa con 200gr de platano macho rebanado y frito",
+      "fotoUrl": "https://http2.mlstatic.com/D_NQ_NP_892349-MLM49102633747_022022-O.webp"
+    }]
+  },
+  {
+    "id": 4,
+    "nombre": "Carnes",
+    "fotoUrl": "https://www.kronen.eu/fileadmin/_processed_/7/5/csm_meat-fish-kronen-processing-machines_shutterstock_1920px_6ea5045a6e.jpg",
+    "productos": [
+      {
+      "id": "19",
+      "nombre":"Filete de pechuga de pollo",
+      "precio": 29,
+      "descripciones": "Pechuga de pollo del dia.",
+      "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSYZFeQVARu1_dcQ6KOL01vPeUTkceZ3f-QA&s"
+    },
+    {
+      "id": "20",
+      "nombre":"Pierna y muslo de pollo",
+      "precio": 70,
+      "descripciones": "Pierna y muslo de pollo del dia.",
+      "fotoUrl": "https://ramadamarket.com/wp-content/uploads/2020/11/Pierna-Muslo-3.jpg"
+    },
+    {
+      "id": "21",
+      "nombre":"Alas de pollo",
+      "precio": 78,
+      "descripciones": "Alita de pollo del dia, sin cortar",
+      "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1vUlQ25EnQPtVe47tKBmReEaQ2iAHM4rznQ&s"
+    },
+    {
+      "id": "22",
+      "nombre":"Filete de tilapia",
+      "precio": 150,
+      "descripciones": "Filete de tilapia congelado",
+      "fotoUrl": "https://dcdn-us.mitiendanube.com/stores/003/861/864/products/filete-tilapia-1024x1024-003-c7483b9c026464185716986340125338-1024-1024.jpg"
+    },
+    {
+      "id": "23",
+      "nombre":"Camaron",
+      "precio": 200,
+      "descripciones": "Camaron crudo, sin cabeza ni patas.",
+      "fotoUrl": "https://www.ciad.mx/wp-content/uploads/2021/03/272-WEB-NOTA-2.jpg"
+    },
+    {
+      "id": "24",
+      "nombre":"Molida de pescado",
+      "precio": 160,
+      "descripciones": "Bolsa de 500gr de pescado molido, ideal para ceviche.",
+      "fotoUrl": "https://www.servifrutas.com/web/image/product.product/4270/image_1024/Molida%20de%20pescado%20%281kg%29?unique=456050d"
+    }]
+  },
+  {
+    "id": 5,
+    "nombre": "Frutos secos",
+    "fotoUrl": "https://dspclaherradura.com.mx/wp-content/uploads/2021/09/Beneficios-de-los-Frutos-Secos-para-los-Ninos.jpg",
+    "productos": [
+      {
+        "id": "25",
+        "nombre":"Nuez",
+        "precio": 250,
+        "descripciones": "Nuez sin cascara y tierna.",
+        "fotoUrl": "https://cdn.shopify.com/s/files/1/1699/9375/files/nueve-beneficios-de-la-nuez-pecan-1_1024x1024.jpg?v=1514127989"
+      },
+      {
+        "id": "26",
+        "nombre":"Pistaches",
+        "precio": 210,
+        "descripciones": "Pistache frito y con sal.",
+        "fotoUrl": "https://www.gob.mx/cms/uploads/article/main_image/59235/pistaches.jpg"
+      },
+      {
+        "id": "27",
+        "nombre":"Datiles",
+        "precio": 170,
+        "descripciones": "Datiles del desierto, llenos de vitaminas",
+        "fotoUrl": "https://phantom-marca.unidadeditorial.es/3d94a34a9e0df5e88ec47da507a12efd/resize/828/f/jpg/assets/multimedia/imagenes/2023/11/11/16997232076831.jpg"
+      },
+      {
+        "id": "28",
+        "nombre":"Almendra",
+        "precio": 180,
+        "descripciones": "Almendras enteras ",
+        "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuDVtwKssnLoQ23aezCkXyaAodyFhMXapk8g&s"
+      },
+      {
+        "id": "29",
+        "nombre":"Cacahuate",
+        "precio": 200,
+        "descripciones": "Cacahuate tostado sin sal.",
+        "fotoUrl": "https://static.wixstatic.com/media/10f5ce_e098d70585d24fad9a4c2921e02e02f1~mv2.jpg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/10f5ce_e098d70585d24fad9a4c2921e02e02f1~mv2.jpg"
+      },
+      {
+        "id": "30",
+        "nombre":"Uva pasa",
+        "precio": 160,
+        "descripciones": "Uva pasa, dulce y saludable.",
+        "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0KgcVk4Ed5_GKAMmsUYzMCErzwE0uJsXEWg&s"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Recomendados",
+    "fotoUrl": "https://eldiariony.com/wp-content/uploads/sites/2/2023/06/shutterstock_521741356.jpg?resize=360,270&quality=80",
+    "productos": []
+  }
+]
