@@ -2,12 +2,45 @@
     <div class="auth-box">
       <h2>Registrarse</h2>
       <form (ngSubmit)="register()">
+
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input 
+            type="nombre" 
+            id="nombre" 
+            [(ngModel)]="usuario.nombre" 
+            name="nombre" 
+            required 
+            placeholder="Ingrese su nombre" />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input 
+            type="apellido" 
+            id="apellido" 
+            [(ngModel)]="usuario.apellido" 
+            name="apellido" 
+            required 
+            placeholder="Ingrese su apellido" />
+        </div>
+
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+          <input 
+            type="date" 
+            id="fechaNacimientonombre" 
+            [(ngModel)]="usuario.fechaNacimiento" 
+            name="fechaNacimiento" 
+            required 
+            placeholder="Ingrese su Fecha de Nacimiento" />
+        </div>
+
         <div class="form-group">
           <label for="email">Correo Electrónico:</label>
           <input 
             type="email" 
             id="email" 
-            [(ngModel)]="credentials.email" 
+            [(ngModel)]="usuario.email" 
             name="email" 
             required 
             placeholder="Ingrese su correo electrónico" />
@@ -18,7 +51,7 @@
           <input 
             type="password" 
             id="password" 
-            [(ngModel)]="credentials.password" 
+            [(ngModel)]="usuario.password" 
             name="password" 
             required 
             placeholder="Ingrese su contraseña" />

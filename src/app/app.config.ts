@@ -11,11 +11,13 @@ import { ArticuloComponent } from './pages/articulo/articulo.component';
 import { authInterceptor } from './core/services/auth.interceptor'; // Asegúrate de que esto esté importado correctamente
 import { AuthGuard } from './core/services/auth.guard';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './core/auth/register/register.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'home', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent},
   { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'buscar', component: BuscarComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },

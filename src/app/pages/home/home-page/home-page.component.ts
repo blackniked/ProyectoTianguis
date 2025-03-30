@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit, OnDestroy{
 
   //Aqui se inician los services
   ngOnInit(): void {
-    this.headerService.titulo.set("Inicio");
+    this.headerService.titulo.set("EzMarket");
     this.headerService.extendido.set(true);
     this.categoriasService.getAll().then(res => this.categorias.set(res))
   }

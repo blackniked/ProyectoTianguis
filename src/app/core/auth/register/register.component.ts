@@ -11,7 +11,10 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule]
 })
 export class RegisterComponent {
-  credentials = {
+  usuario = {
+    nombre: '',
+    apellido: '',
+    fechaNacimiento: Date,
     email: '',
     password: ''
   };
@@ -19,7 +22,7 @@ export class RegisterComponent {
   constructor(private authService: AuthService) {}
 
   register() {
-    this.authService.register(this.credentials).subscribe(response => {
+    this.authService.register(this.usuario).subscribe(response => {
       console.log('Inicio de sesión exitoso', response);
       localStorage.setItem('token', response.token); // Guardar el token
     }, error => {
