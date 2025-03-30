@@ -1,6 +1,8 @@
-import { Routes } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
-import { LoginComponent } from './pages/Login/login/login.component';
+import { LoginComponent } from './core/auth/login/login.component';
+import { RegisterComponent } from './core/auth/register/register.component';
+import { AuthGuard } from './core/services/auth.guard';
 
 export const routes: Routes = [
     {
@@ -8,7 +10,18 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
+        path: "register",
+        component: RegisterComponent
+    },
+    {
         path: "",
-        component: HomePageComponent
-    }
+        component: HomePageComponent, canActivate: [AuthGuard]
+    },
+    { 
+        path: '**', 
+        redirectTo: 'login', 
+        pathMatch: 'full' 
+    } // Redirección a login si la ruta no existe
 ];
+
+export const appRouting = provideRouter(routes);

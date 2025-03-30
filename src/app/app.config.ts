@@ -1,33 +1,33 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
-import { LoginComponent } from './pages/Login/login/login.component';
+import { LoginComponent } from './core/auth/login/login.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { ArticuloComponent } from './pages/articulo/articulo.component';
-
-//import { routes } from './app.routes';
-
-
-/*export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
-}; */
+import { authInterceptor } from './core/services/auth.interceptor'; // Asegúrate de que esto esté importado correctamente
+import { AuthGuard } from './core/services/auth.guard';
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
-  {path: '', component: HomePageComponent},
-  {path: 'home', component: HomePageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'perfil', component: PerfilComponent},
-  {path: 'carrito', component: CarritoComponent},
-  {path: 'buscar', component: BuscarComponent},
-  {path: 'categoria/:id', component: CategoriaComponent},
-  {path: 'articulo/:id', component: ArticuloComponent},
+  { path: '', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'home', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'login', component: LoginComponent },
+  { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'buscar', component: BuscarComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'categoria/:id', component: CategoriaComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'articulo/:id', component: ArticuloComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
 ];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideHttpClient(withInterceptors([authInterceptor])), // Aquí se usa el interceptor como función
+    provideRouter(routes),
+    AuthGuard,
+    FormsModule,
+  ]
 };
-
-
