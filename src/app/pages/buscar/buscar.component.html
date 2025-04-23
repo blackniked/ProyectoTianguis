@@ -2,20 +2,9 @@
 <form #buscarForm="ngForm" (change)="buscar()"productos>
     <div id="barra-busqueda">
       <img src="./../../../assets/icons/buscar.svg" alt="Lupa">
-      <input type="text" name="texto" [(ngModel)]="parametrosBusqueda.texto" #texto="ngModel">
+      <input type="text" name="texto" [(ngModel)]="parametrosBusqueda.texto" (input)="buscar()" #texto="ngModel">
     </div>
-    <div id="filtros-container">
-      <!-- <div class="apto-container">
-        <img src="./../../../assets/icons/celiaco.png" alt="Apto celíaco">
-        <input type="checkbox" name="celiaco" id="celiaco" [(ngModel)]="parametrosBusqueda.aptoCeliaco" #celiaco="ngModel">
-        <span>Apto celíaco</span>
-      </div>
-      <div class="apto-container">
-        <img src="./../../../assets/icons/vegano.svg" alt="Apto vegano">
-        <input type="checkbox" name="vegano" id="vegano" [(ngModel)]="parametrosBusqueda.aptoVegano" #vegano="ngModel">
-      <span>Apto vegano</span>
-    </div> -->
-  </div>
+    
   </form>
   <div id="contenedor-productos" *ngIf="productos().length !==0; else sinResultado">
     <app-tarjeta-producto
@@ -25,7 +14,7 @@
   </app-tarjeta-producto>
   </div>
   <ng-template #sinResultado>
-    <h2>Tú busqueda no arrojo ningun resultado.</h2>
+    <h2>Tú busqueda no arrojó ningun resultado.</h2>
 </ng-template>
 
 </section>

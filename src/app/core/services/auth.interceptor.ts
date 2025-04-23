@@ -1,16 +1,16 @@
 import { HttpRequest, HttpHandlerFn, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HttpInterceptorFn } from '@angular/common/http'; // Asegúrate de que esto esté importado correctamente
+import { HttpInterceptorFn } from '@angular/common/http'; 
 
-// Definir el interceptor como función
-export const authInterceptor: HttpInterceptorFn = (
+
+export const authInterceptor: HttpInterceptorFn = (  // Definir el interceptor como función
   req: HttpRequest<any>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<any>> => {
   const token = localStorage.getItem('token');
 
   if (token) {
-    // Clonamos la solicitud y agregamos el token al encabezado
+    // Clonamos la solicitud y agregamos el token al Headers
     const clonedReq = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`

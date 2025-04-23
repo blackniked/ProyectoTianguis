@@ -27,11 +27,19 @@ export class BuscarComponent {
 
     parametrosBusqueda:Busqueda = {
       texto: "",
-      aptoCeliaco: false,
-    aptoVegano: false,
     }
 
-    async buscar(){
+    //async buscar(){
+    //  this.productos.set(await this.productosService.buscar(this.parametrosBusqueda));
+   // }
+
+   async buscar() {
+    const texto = this.parametrosBusqueda.texto.trim().toLowerCase();
+    if (!texto) {
+      this.productos.set(await this.productosService.getAll());
+    } else {
       this.productos.set(await this.productosService.buscar(this.parametrosBusqueda));
     }
+  }
+  
 }

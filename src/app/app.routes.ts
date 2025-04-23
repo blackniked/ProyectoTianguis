@@ -14,6 +14,10 @@ export const routes: Routes = [
         component: RegisterComponent
     },
     {
+        path: "home-vendedor",
+        component: HomePageComponent, canActivate: [AuthGuard] // Ruta protegida
+    },
+    {
         path: "",
         component: HomePageComponent, canActivate: [AuthGuard]
     },
