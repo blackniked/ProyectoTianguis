@@ -48,11 +48,17 @@ textarea{
 
 button{
   width: 100%;
+  font-weight: bold;
   border-radius: 20px;
   border: unset;
-  background-color: antiquewhite;
+  background-color: #c12d4b;
   font-size: larger;
   padding: 10px;
+}
+button:hover{
+  background-color: #a11f3b;
+  transition: all 0.3s ease-in-out;
+  color: white;
 }
 
 #negrita{

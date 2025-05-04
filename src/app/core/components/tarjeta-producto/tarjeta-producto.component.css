@@ -4,6 +4,13 @@
     background-color: rgb(193, 45, 75);
     border-radius: 15px;
     overflow: hidden;
+    cursor: pointer;
+}
+#container:hover{
+    background-color: rgb(116, 15, 35);
+    color: white;
+  transform: scale3d(1.05, 1.05, 1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 #foto{
@@ -42,4 +49,6 @@ ul li {
     text-align: end;
     font-weight: bold;
 }
+
+
 

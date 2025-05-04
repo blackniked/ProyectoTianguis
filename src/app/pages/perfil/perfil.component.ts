@@ -4,12 +4,12 @@ import { HeaderService } from '../../core/services/header.service';
 import { CommonModule } from '@angular/common';
 import { Perfil } from '../../core/interfaces/perfil';
 import { PerfilService } from '../../core/services/perfil.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.css'
 })

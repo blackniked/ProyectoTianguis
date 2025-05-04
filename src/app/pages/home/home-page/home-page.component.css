@@ -3,9 +3,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  gap: 20px ;
+  gap: 30px ;
 }
 
 app-tarjeta-categoria{
+  margin-top: 10px;
   width: 100%;
+  cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+app-tarjeta-categoria:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+    transition: transform 0.3s ease-in-out;
+  color: white;
+}
+
+

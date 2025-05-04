@@ -13,6 +13,7 @@ import { AuthGuard } from './core/services/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { HomeVendedorComponent } from './pages/home-vendedor/home-vendedor.component';
+import { RegistrarProductosComponent } from './pages/registrar-productos/registrar-productos.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
@@ -24,7 +25,8 @@ export const routes: Routes = [
   { path: 'buscar', component: BuscarComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'categoria/:id', component: CategoriaComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'articulo/:id', component: ArticuloComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
-  { path: 'home-vendedor', component: HomeVendedorComponent } // Redirigir a la página de inicio si no se encuentra la ruta
+  { path: 'home-vendedor', component: HomeVendedorComponent }, // Redirigir a la página de inicio si no se encuentra la ruta
+  { path: 'registrar-productos', component: RegistrarProductosComponent } // Redirigir a la página de inicio si no se encuentra la ruta
 ];
 
 export const appConfig: ApplicationConfig = {
