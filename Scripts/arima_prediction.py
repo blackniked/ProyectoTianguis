@@ -1,88 +1,106 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.arima.model import ARIMA
 from decouple import config
 import psycopg2
+from sqlalchemy import create_engine
 
+# Obtener los datos desde PostgreSQL
 def obtener_datos():
     try:
-        conexion = psycopg2.connect(
-            host=config('DB_HOST'),
-            port=config('DB_PORT', default='5432'),
-            database=config('DB_NAME'),
-            user=config('DB_USER'),
-            password=config('DB_PASSWORD')
-        )
+        db_url = f"postgresql://{config('DB_USER')}:{config('DB_PASSWORD')}@{config('DB_HOST')}:{config('DB_PORT')}/{config('DB_NAME')}"
+        engine = create_engine(db_url) 
+        
         consulta = """
-            SELECT fecha_pedido::date AS fecha, producto_id, SUM(cantidadTotal) as total
-            FROM ventas_pedido
-            GROUP BY fecha, producto_id
+            SELECT 
+                vp.fecha_pedido::date AS fecha,
+                p.id_producto AS producto_id,
+                p.nombre AS producto_nombre,
+                SUM(vp."cantidadTotal") AS total
+            FROM ventas_pedido vp
+            JOIN productos p ON vp.producto_id_id = p.id_producto
+            GROUP BY fecha, p.id_producto, p.nombre
             ORDER BY fecha;
         """
-        df = pd.read_sql_query(consulta, conexion)
-        conexion.close()
+        df = pd.read_sql_query(consulta, con=engine)
         return df
     except Exception as e:
         print(f"Error al obtener datos: {e}")
         return None
 
-def predecir_por_producto(df):
-    df['fecha'] = pd.to_datetime(df['fecha'])
-    productos = df['producto_id'].unique()
-    predicciones = {}
-    historicos = {}
+# Prueba Dickey-Fuller para ver si la serie es estacionaria
+def prueba_dickey_fuller(serie):
+    resultado = adfuller(serie)
+    if resultado[1] > 0.05:
+        print("Serie no estacionaria (se usara diferenciacion)")
+    else:
+        print("Serie estacionaria")
 
-    for prod_id in productos:
-        datos = df[df['producto_id'] == prod_id].copy()
-        datos = datos.groupby('fecha')['total'].sum().asfreq('D', fill_value=0)
+# Predicción por cada producto y texto explicativo para mas claridad
+def predecir_por_producto(df):
+    productos = df['producto_nombre'].unique()
+    predicciones = {}
+
+    for nombre in productos:
+        datos = df[df['producto_nombre'] == nombre].copy()
+        datos['fecha'] = pd.to_datetime(datos['fecha'])
+        datos.set_index('fecha', inplace=True)
+        datos = datos.asfreq('D').fillna(0)
 
         if len(datos) < 10:
-            continue  # para evitar series muy cortas
+            continue  # para evitar productos con pocos datos
+
+        prueba_dickey_fuller(datos['total'])
 
         try:
-            modelo = ARIMA(datos, order=(2, 1, 2))
+            modelo = ARIMA(datos['total'], order=(5, 1, 2))
             resultado = modelo.fit()
-            futura_pred = resultado.forecast(steps=7).sum()
-            predicciones[prod_id] = futura_pred
-            historicos[prod_id] = {
-                "reales": datos,
-                "predicciones": resultado.forecast(steps=7)
-            }
-        except:
-            continue
+            forecast = resultado.forecast(steps=7).sum()
+            predicciones[nombre] = forecast
+        except Exception as e:
+            print(f"Error al predecir {nombre}: {e}")
 
     if not predicciones:
-        print("No se pudieron generar predicciones validas.")
-        return None
+        print("No se pudo hacer prediccion con ningun producto.")
+        return
 
-    # calcular el producto con mayor demanda estimada
     prod_max = max(predicciones, key=predicciones.get)
-    return prod_max, historicos[prod_max]
+    print(f"El producto con mayor demanda estimada en la proxima semana es: {prod_max}")
+    mostrar_grafica(df, prod_max)
 
-def graficar_resultado(datos_producto, prod_id):
-    reales = datos_producto['reales']
-    pred = datos_producto['predicciones']
+#grafica para el producto con mayor prediccion
+def mostrar_grafica(df, nombre_producto):
+    datos = df[df['producto_nombre'] == nombre_producto].copy()
+    datos['fecha'] = pd.to_datetime(datos['fecha'])
+    datos.set_index('fecha', inplace=True)
+    datos = datos.asfreq('D').fillna(0)
 
-    plt.figure(figsize=(12,6))
-    reales.plot(label='Historico')
-    pred.plot(label='Prediccion (7 días)', linestyle='--')
-    plt.title(f"Prediccion ARIMA para Producto ID: {prod_id}")
-    plt.xlabel('Fecha')
-    plt.ylabel('Cantidad Vendida')
+    modelo = ARIMA(datos['total'], order=(5, 1, 2))
+    resultado = modelo.fit()
+
+    predicciones = resultado.forecast(steps=7)
+    fechas_futuras = pd.date_range(start=datos.index[-1] + pd.Timedelta(days=1), periods=7)
+
+    plt.figure(figsize=(12, 6))
+    plt.plot(datos['total'], label='Ventas historicas')
+    plt.plot(fechas_futuras, predicciones, label='Prediccion proxima semana', linestyle='--')
+    plt.title(f"Prediccion ARIMA para: {nombre_producto}")
+    plt.xlabel("Fecha")
+    plt.ylabel("Ventas")
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
     plt.show()
 
+#Ejecución principal
 def main():
     df = obtener_datos()
     if df is not None:
-        prod_max, datos_producto = predecir_por_producto(df)
-        if prod_max:
-            print(f"El producto con mayor demanda estimada en la proxima semana es: Producto ID {prod_max}")
-            graficar_resultado(datos_producto, prod_max)
+        predecir_por_producto(df)
+    else:
+        print("No se pudo obtener informacion de ventas.")
 
 if __name__ == '__main__':
     main()
