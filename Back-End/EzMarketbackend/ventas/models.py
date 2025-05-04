@@ -17,6 +17,7 @@ class Usuario(AbstractUser):
     es_vendedor = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+    descripcion_casa = models.CharField(max_length=10000, blank=True)
 
     def __str__(self):
         return self.username
@@ -42,21 +43,38 @@ class Pedido(models.Model):
     usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE) #Columna ya agregada 20/03/25
     producto_id = models.ForeignKey(Productos, on_delete=models.CASCADE)#Columna ya agregada 20/03/25
     cantidad = models.IntegerField() #columna ya agregada 20/03/25 y triggers creados
-    cantidadTotal = models.IntegerField(blank=True, null=True) #Agregar columna cantidad_total
-    fecha_pedido = models.DateTimeField(auto_now_add=True) #Revisar que exista algo similar
-    total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00) #Revisar que exista algo similar
+    cantidadTotal = models.IntegerField(blank=True, null=True) #columna agregada
+    fecha_pedido = models.DateTimeField(auto_now_add=True) #columna agregada
+    total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00) #columna agregada
     estadoPedido = models.CharField(max_length=20, choices=[('Preparando', 'Preparando'), ('Enviado', 'Enviado'), ('Entregado', 'Entregado'), 
-                                                            ('Cancelado', 'Cancelado')], default='Preparando') #Agregar columna estado_pedido
+                                                            ('Cancelado', 'Cancelado')], default='Preparando') #columna agregada
     
 
     def __str__(self):
-        return self.cliente.username + ' - ' + self.producto.nombre
+        return f'Pedido #{self.id} - {self.usuario_id.username}'
     
-def calcular_total(self):
-    self.total = self.producto_id.precio * self.cantidad
-    self.cantidadTotal = self.cantidad
-    self.save()
+    def calcular_total(self):
+        total = sum([detalle.subtotal for detalle in self.detalles.all()])
+        self.total = total
 
-def save(self, *args, **kwargs):
-    self.calcular_total()
-    super(Pedido, self).save(*args, **kwargs)
+    #def save(self, *args, **kwargs):
+    #    self.calcular_total()
+    #    super(Pedido, self).save(*args, **kwargs)
+
+#para manejar cada producto en el pedido
+class PedidoDetalle(models.Model):
+    pedido = models.ForeignKey(Pedido, related_name='detalles', on_delete=models.CASCADE)
+    producto = models.ForeignKey(Productos, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField()
+    subtotal = models.DecimalField(max_digits=10, decimal_places=2, blank=True) 
+
+    def __str__(self):
+        return f'{self.cantidad} x {self.producto.nombre} en Pedido #{self.pedido.id}'
+    
+    def calcular_subtotal(self):
+        self.subtotal = self.producto.precio * self.cantidad
+
+    def save(self, *args, **kwargs):
+        self.calcular_subtotal()
+        super().save(*args, **kwargs)
+        self.pedido.calcular_total()
