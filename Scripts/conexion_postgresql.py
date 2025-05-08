@@ -15,7 +15,7 @@ def obtener_datos_postgresql():
         print("Conexión exitosa a la base de datos PostgreSQL")
     
         # Consulta SQL para obtener los datos
-        query = "SELECT fecha_pedido, producto_id_id, cantidad FROM ventas_pedido ORDER BY fecha_pedido DESC;"
+        query = "SELECT * FROM usuarios;"
     
         # Leer los datos en un DataFrame de pandas
         df = pd.read_sql_query(query, conn)

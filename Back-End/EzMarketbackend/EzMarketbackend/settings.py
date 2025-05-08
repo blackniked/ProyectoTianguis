@@ -100,6 +100,8 @@ REST_FRAMEWORK = {
 
 #Token lifetime
 SIMPLE_JWT = {
+    'USER_ID_FIELD': 'id',  # Cambia 'id' por 'id_usuario'
+    'USER_ID_CLAIM': 'id',
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
