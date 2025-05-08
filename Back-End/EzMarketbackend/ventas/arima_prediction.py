@@ -54,7 +54,7 @@ def predecir_por_producto(df):
         datos.set_index('fecha', inplace=True)
         datos = datos.asfreq('D').fillna(0)
 
-        if len(datos) < 10:
+        if len(datos) < 5:
             print(f"Producto {nombre} tiene pocos datos para predecir.")
             continue  # Evitar productos con pocos datos
 
