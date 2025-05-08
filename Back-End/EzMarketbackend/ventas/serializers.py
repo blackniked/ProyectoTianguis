@@ -1,67 +1,55 @@
 from rest_framework import serializers
-from .models import Productos, Pedido, PedidoDetalle, Usuario
+from .models import Usuario, Producto, VentaPedido, Pedido
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate
+from rest_framework.permissions import IsAuthenticated
+
 
 #Serializacion
-class SerializadorProducto(serializers.ModelSerializer):
-    class Meta:
-        model = Productos
-        fields = '__all__'
-
-class SerializadorPedido(serializers.ModelSerializer):
-    class Meta:
-        model = Pedido
-        fields = '__all__'
-
 class UsuarioSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True)  # Para que la contraseña no se muestre en las respuestas
+
     class Meta:
-        model = User
-        fields = ['id', 'Nombre', 'Apellido','correo', 'telefono', 'direccion', 'fecha_nacimiento']
+        model = Usuario
+        fields = [
+            'id', 'nombre', 'apellido', 'correo', 'telefono', 'direccion', 
+            'fecha_nacimiento', 'es_vendedor', 'password'
+        ]
+
     def create(self, validated_data):
-        validated_data['password'] = make_password(validated_data['password'])
-        return Usuario.objects.create(**validated_data)
+        # Encripta la contraseña antes de guardar el usuario
+        user = Usuario.objects.create_user(
+            correo=validated_data['correo'],
+            password=validated_data['password'],
+            nombre=validated_data['nombre'],
+            apellido=validated_data['apellido'],
+            telefono=validated_data.get('telefono'),
+            direccion=validated_data.get('direccion'),
+            fecha_nacimiento=validated_data.get('fecha_nacimiento'),
+            es_vendedor=validated_data.get('es_vendedor', False)
+        )
+        return user
     
-class PedidoDetalleSerializer(serializers.ModelSerializer):
-    producto_nombre = serializers.ReadOnlyField(source='producto.nombre')
 
+
+class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PedidoDetalle
-        fields = ['id', 'producto', 'producto_nombre', 'cantidad', 'subtotal']
+        model = Producto
+        fields = [
+            'id_producto', 'nombre', 'descripcion', 'precio', 'stock', 
+            'peso', 'piezas', 'usuario'
+        ]
 
+
+class VentaPedidoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VentaPedido
+        fields = ['id', 'pedido', 'producto', 'cantidad', 'total']
 
 class PedidoSerializer(serializers.ModelSerializer):
-    detalles = PedidoDetalleSerializer(many=True)
-    usuario_nombre = serializers.ReadOnlyField(source='usuario_id.username')
+    productos = VentaPedidoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Pedido
-        fields = ['id', 'usuario_id', 'usuario_nombre', 'fecha_pedido', 'total', 'estadoPedido', 'detalles']
-
-    def create(self, validated_data):
-        detalles_data = validated_data.pop('detalles', [])
-        pedido = Pedido.objects.create(**validated_data)
-        for detalle_data in detalles_data:
-            PedidoDetalle.objects.create(pedido=pedido, **detalle_data)
-        pedido.calcular_total()
-        return pedido
-
-    def update(self, instance, validated_data):
-        detalles_data = validated_data.pop('detalles', [])
-
-    # Actualizar campos básicos
-        instance.estadoPedido = validated_data.get('estadoPedido', instance.estadoPedido)
-        instance.save()
-
-    # Si hay detalles nuevos, reemplazar los existentes
-        if detalles_data:
-            instance.detalles.all().delete()
-            for detalle_data in detalles_data:
-                PedidoDetalle.objects.create(pedido=instance, **detalle_data)
-
-        # Solo calcular el total si se han modificado los detalles
-            instance.calcular_total()
-            instance.save()
-
-        return instance
+        fields = ['id_pedido', 'usuario', 'fecha_pedido', 'estado_pedido', 'productos']
