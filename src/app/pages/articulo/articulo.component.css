@@ -5,10 +5,12 @@
   top: 0;
   z-index: -1;
   object-fit: cover;
+  display: block;
 }
 
+
 .margen-chico{
-  margin-top: 230px;
+  margin-top: 250px;
 }
 
 .margen-chico > * {

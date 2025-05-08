@@ -20,8 +20,15 @@
         <p class="error" *ngIf="telefono.invalid && telefono.touched">Ingrese un Teléfono válido</p>
     </div>
     
-    <button [routerLink]="['/home-vendedor']" > Ir a Vendedor </button>
     
     <button [disabled]="formulario.invalid" >Guardar</button>
+    <br>
+    <button [routerLink]="['/home-vendedor']" > Ir a Vendedor </button>
+    <br>
+    <button [routerLink]="['/login']" > Cerrar sesión </button>
+
+
+
+
 </form>
 </section>

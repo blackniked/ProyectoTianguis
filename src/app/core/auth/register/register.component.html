@@ -1,4 +1,5 @@
 <div class="auth-container">
+  <img src="assets/img/LogoEzmkt.png" alt="Logo de EzMarket" />
     <div class="auth-box">
       <h2>Registrarse</h2>
       <form (ngSubmit)="register()">
@@ -22,6 +23,14 @@
             name="apellido" 
             required 
             placeholder="Ingrese su apellido" />
+        </div>
+        <div class="form-group">
+          <label for="esVendedor">¿Eres vendedor?</label>
+          <input 
+            type="checkbox" 
+            id="esVendedor" 
+            [(ngModel)]="usuario.esVendedor" 
+            name="esVendedor" />
         </div>
 
         <div class="form-group">
@@ -70,11 +79,11 @@
         -->
   
         <div class="form-group">
-          <button type="submit" class="btn">Registrarse</button>
+          <button type="submit" class="btn" [routerLink]="['/login']" [disabled]="!usuario.nombre || !usuario.apellido || !usuario.fechaNacimiento || !usuario.email || !usuario.password">Registrarse</button>
         </div>
         
         <div class="redirect">
-          <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
+          <p>¿Ya tienes cuenta? <a [routerLink]="['/login']">Inicia sesión aquí</a></p>
         </div>
       </form>
     </div>

@@ -1,14 +1,16 @@
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { HeaderService } from '../../services/header.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  imports: [FormsModule]
+  imports: [FormsModule, RouterLink]
 })
 export class RegisterComponent {
   usuario = {
@@ -16,11 +18,18 @@ export class RegisterComponent {
     apellido: '',
     fechaNacimiento: Date,
     email: '',
-    password: ''
+    password: '',
+    esVendedor: false,
   };
 
   constructor(private authService: AuthService) {}
+//Aqui se inyectan los service
+  headerService = inject(HeaderService);
 
+  //Aqui se inician los services
+  ngOnInit(): void {
+    this.headerService.titulo.set("Registrar Usuario");
+}
   register() {
     this.authService.register(this.usuario).subscribe(response => {
       console.log('Inicio de sesión exitoso', response);

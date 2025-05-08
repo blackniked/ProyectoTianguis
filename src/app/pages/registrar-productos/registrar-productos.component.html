@@ -3,14 +3,20 @@
     <div class="registrar-items">
         <h3>Registrar productos</h3>
         <form>
-            <label for="itemName">Nombre de producto:</label>
+            <label for="nombreProducto">Nombre de producto:</label>
             <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Ingresa el nombre del producto" required />
 
-            <label for="itemPrice">Precio de producto:</label>
-            <input type="number" id="precioProducto" name="precioProducto" placeholder="Ingresa el precio del producto" required />
+            <label for="precioProducto">Precio de producto:</label>
+            <input type="number" id="precioProducto" name="precioProducto" placeholder="Ingresa el precio del producto" required min="0" />
 
-            <label for="itemDescription">Descripcion de producto:</label>
-            <textarea id="descripcionProducto" name="descripcionProducto" placeholder="Ingresa la descripcion del producto"></textarea>
+            <label for="descripcionProducto">Descripcion de producto:</label>
+            <textarea id="descripcionProducto" name="descripcionProducto" placeholder="Ingresa la descripcion del producto" style="resize: none;"></textarea>
+
+            <label for="pesoProducto">Peso promedio (grs):</label>
+            <input type="number" id="pesoProducto" name="pesoProducto" placeholder="Ingresa el peso promedio del producto en gramos" required min="0" />
+
+            <label for="piezasProducto">Cantidad de piezas de producto:</label>
+            <input type="number" id="piezasProducto" name="piezasProducto" placeholder="Ingresa la cantidad de piezas a registrar" required min="0" />
 
             <button type="submit">Agregar producto</button>
         </form>

@@ -35,9 +35,10 @@ img{
 
 
 #contenedor-productos{
-  margin: 20px;
+  margin: 50px;
     display: flex;
     flex-direction: column;
+    max-width: 95%;
     gap: 10px;
 }
 

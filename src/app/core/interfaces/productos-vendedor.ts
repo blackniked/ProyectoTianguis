@@ -1,4 +1,4 @@
-export interface Producto {
+export interface ProductoVendedor {
     vendedorId: number,
     id: number,
     nombre: string,

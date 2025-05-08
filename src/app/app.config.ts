@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { HomeVendedorComponent } from './pages/home-vendedor/home-vendedor.component';
 import { RegistrarProductosComponent } from './pages/registrar-productos/registrar-productos.component';
+import { ProductosVendedorComponent } from './pages/productos-vendedor/productos-vendedor.component';
+import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
@@ -26,7 +29,10 @@ export const routes: Routes = [
   { path: 'categoria/:id', component: CategoriaComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'articulo/:id', component: ArticuloComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'home-vendedor', component: HomeVendedorComponent }, // Redirigir a la página de inicio si no se encuentra la ruta
-  { path: 'registrar-productos', component: RegistrarProductosComponent } // Redirigir a la página de inicio si no se encuentra la ruta
+  { path: 'registrar-productos', component: RegistrarProductosComponent }, // Redirigir a la página de inicio si no se encuentra la ruta
+  { path: 'productos-vendedor', component: ProductosVendedorComponent }, // Redirigir a la página de inicio si no se encuentra la ruta
+  { path: 'ver-estadisticas', component: EstadisticasComponent},
+  { path: 'ver-pedidos', component: PedidosComponent}
 ];
 
 export const appConfig: ApplicationConfig = {
