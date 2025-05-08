@@ -1,11 +1,19 @@
 .auth-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background-color: #f4f4f4;
   }
-  
+  img {
+    margin-top: 0%; 
+    display: flex;
+    width: 350px;
+    height: 350px;
+    
+  }
+ 
   .auth-box {
     background-color: #fff;
     padding: 30px;
@@ -16,6 +24,8 @@
   }
   
   h2 {
+    font-weight: bold;
+    font-size: large;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -42,16 +52,21 @@
   button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #c12d4b;
     border: none;
-    border-radius: 4px;
     color: white;
+    border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
   }
+  button:disabled {
+    background-color: #c12d4b;
+    cursor: not-allowed;
+  }
   
   button:hover {
-    background-color: #0056b3;
+    color: white;
+    background-color: green;
   }
   
   .redirect {

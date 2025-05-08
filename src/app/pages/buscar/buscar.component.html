@@ -2,7 +2,7 @@
 <form #buscarForm="ngForm" (change)="buscar()"productos>
     <div id="barra-busqueda">
       <img src="./../../../assets/icons/buscar.svg" alt="Lupa">
-      <input type="text" name="texto" [(ngModel)]="parametrosBusqueda.texto" (input)="buscar()" #texto="ngModel">
+      <input type="text" name="texto" [(ngModel)]="parametrosBusqueda.texto" (input)="buscar()" #texto="ngModel" placeholder="Buscar productos..."/>
     </div>
     
   </form>

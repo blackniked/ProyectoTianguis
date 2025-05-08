@@ -1,30 +1,35 @@
 <div id="titulo"> 
-    <h2>EzMarket VENDEDOR</h2>
+    <h2>Bienvenido, {{usuario.nombre}} tu ID de vendedor es: {{usuario.id}}</h2>
 </div>
 <div id="botones">
     
     <button [routerLink]="['/registrar-productos']" >
-        <span>📋</span>
-        Registrar
+        <img src="assets/img/registrarProducto.png" alt="registrarProducto" />
+        <span>Registrar productos</span>
+        
+    </button>
+    <button [routerLink]="['/productos-vendedor']" >
+        <img src="assets/img/verProductos.png" alt="verProductos" />
+        <span>Ver productos</span> 
+    </button>
+    <button [routerLink]="['/ver-estadisticas']" >
+        <img src="assets/img/verEstadisticas.png" alt="verEstadisticas" />
+        <span>Ver estadísticas</span>
+        
+    </button>
+    <button [routerLink]="['/ver-pedidos']" >
+        <img src="assets/img/verPedidos.png" alt="verPedidos" />
+        <span>Ver pedidos</span>
+        
     </button>
     <button>
-        <span>📦</span>
-        Ver Productos
+        <img src="assets/img/ajustes.png" alt="ajustes" />
+        <span>Ajustes</span>
+        
     </button>
     <button>
-        <span>📊</span>
-        Ver Estadísticas
-    </button>
-    <button>
-        <span>🛒</span>
-        Ver Pedidos
-    </button>
-    <button>
-        <span>⚙️</span>
-        Ajustes
-    </button>
-    <button>
-        <span>💰</span>
-        Ventas
+        <img src="assets/img/ventas.png" alt="ventas" />
+        <span>Ventas</span>
+        
     </button>
 </div>

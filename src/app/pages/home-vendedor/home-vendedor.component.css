@@ -17,6 +17,16 @@ div {
     gap: 35px;
     margin-top: 20px;
 }
+span {
+    font-size: medium;
+    color: white;
+    font-weight:normal;
+}
+img {
+    display: flex;
+    width: 100px;
+    height: 100px;
+}
 #titulo {
     text-align: center;
     color: #333;
@@ -38,13 +48,14 @@ button {
     height: 200px;   
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     gap: 8px;
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
     color: black;
-    background-color: #c12d4b;
+    background-image: linear-gradient(to bottom, #c12d4b, #ef7a91);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -52,7 +63,7 @@ button {
 }
 
 button:hover {
-    background-color: #81142a;
+    background-color: #6d1123;
     color: white;
     transform: scale(1.05);
 }

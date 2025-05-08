@@ -1,1 +1,20 @@
-<p>productos-vendedor works!</p>
+<div id="categorias-container">
+    <app-tarjeta-categoria 
+    *ngFor="let categoria of categorias()"
+     [categoria]="categoria"
+     (click)="onCategorySelected(categoria.id)"
+     >
+    </app-tarjeta-categoria>
+</div>
+
+<div id="productos-container" *ngIf="selectedCategoriaId()">
+    <ng-container *ngIf="productos().length > 0; else noProductos">
+        <app-tarjeta-producto 
+        *ngFor="let producto of productos()"
+         [producto]="producto">
+        </app-tarjeta-producto>
+    </ng-container>
+    <ng-template #noProductos>
+        <p>No tienes productos disponibles para esta categoría.</p>
+    </ng-template>
+</div>

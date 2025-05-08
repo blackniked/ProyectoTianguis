@@ -1,1 +1,37 @@
-<p>pedidos works!</p>
+<div class="pedidos">
+    <h2>Mis Pedidos</h2>
+    <div *ngFor="let pedido of pedidos" class="tarjeta-pedido">
+      <h3>Pedido: {{ pedido.id }}</h3>
+      <p>Estatus: {{ pedido.estatus }}</p>
+  
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Artículo</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let articulo of pedido.articulos">
+            <td>{{ articulo.nombre }}</td>
+            <td>{{ articulo.cantidad }}</td>
+            <td>$ {{ articulo.precio }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="total">Total: $ {{ obtenerTotal(pedido) }}</p>
+      
+      <div class="select-status">
+        <label for="status-select-{{pedido.id}}">Cambiar estatus:</label>
+        <select id="status-select-{{pedido.id}}" 
+                [ngModel]="pedido.estatus" 
+                (ngModelChange)="actualizarEstatus(pedido, $event)">
+          <option *ngFor="let estatus of estatusOptions" [value]="estatus">
+            {{ estatus }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
