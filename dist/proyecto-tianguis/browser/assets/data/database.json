@@ -5,6 +5,7 @@
     "fotoUrl": "https://thefoodtech.com/wp-content/uploads/2022/06/VERDURAS-Y-HORTALIZAS.jpg",
     "productos": [
       {
+      "vendedorId": 1,
       "id": "1",
       "nombre":"Calabacita",
       "precio": 20,
@@ -12,6 +13,7 @@
       "fotoUrl": "https://i.blogs.es/eb4b87/como-hacer-calabacitas-con-queso-1-/450_1000.jpg"
     },
     {
+      "vendedorId": null,
       "id": "2",
       "nombre":"Jitomate",
       "precio": 25,
@@ -19,6 +21,7 @@
       "fotoUrl": "https://i2.wp.com/lopezdoriga.com/wp-content/uploads/2017/02/jitomate.jpg?fit=680%2C510&ssl=1"
     },
     {
+      "vendedorId": null,
       "id": "3",
       "nombre":"Zanahoria",
       "precio": 15,
@@ -26,6 +29,7 @@
       "fotoUrl": "https://comefruta.es/wp-content/uploads/zanahoria.-beneficios-de-la-zanahora-que-no-conoc%C3%ADas-1440x703.jpg"
     },
     {
+      "vendedorId": null,
       "id": "4",
       "nombre":"Chayote",
       "precio": 30,
@@ -33,6 +37,7 @@
       "fotoUrl": "https://static.plataformatierra.es/strapi-uploads/assets/web_chayote_plato2_8eb988757c.jpg"
     },
     {
+      "vendedorId": null,
       "id": "5",
       "nombre":"Tomate verde",
       "precio": 18,
@@ -40,6 +45,7 @@
       "fotoUrl": "https://pacifex.com.mx/storage/blog/159/original/GZzosUmGe4tLF3luUIloukGXtaGSMA5FltHN8AYL.jpg"
     },
     {
+      "vendedorId": null,
       "id": "6",
       "nombre":"Cebolla blanca",
       "precio": 16,
@@ -53,6 +59,7 @@
     "fotoUrl": "https://www.dreamfoodscaribe.com/wp-content/uploads/2023/11/frutas-dulces.webp",
     "productos": [
       {
+        "vendedorId": 1,
         "id": "7",
         "nombre":"Manzana Gala",
         "precio": 45,
@@ -60,6 +67,7 @@
         "fotoUrl": "https://www.lacomer.com.mx/superc/img_art/1038_3.jpg"
       },
       {
+        "vendedorId": 1,
         "id": "8",
         "nombre":"Manzana verde",
         "precio": 40,
@@ -67,6 +75,7 @@
         "fotoUrl": "https://elegifruta.com.ar/wp-content/uploads/2017/05/Manzana-verde1g-min.jpg"
       },
       {
+        "vendedorId": null,
         "id": "9",
         "nombre":"Uva verde",
         "precio": 50,
@@ -74,6 +83,7 @@
         "fotoUrl": "https://www.prensalibre.com/wp-content/uploads/2024/05/close-up-grapes-seasonal-fruit-winter.jpg?quality=52&w=640"
       },
       {
+        "vendedorId": null,
         "id": "10",
         "nombre":"Platano Chiapas",
         "precio": 20,
@@ -81,12 +91,14 @@
         "fotoUrl": "https://imagenes.eltiempo.com/files/image_1200_535/uploads/2024/01/24/65b12a4deee83.png"
       },
       {
+        "vendedorId": null,
         "id": "11",
         "nombre":"Naranja",
         "precio": 35,
         "fotoUrl": "https://www.gob.mx/cms/uploads/article/main_image/115793/NARANJAS_Mesa_de_trabajo_1.jpg"
       },
       {
+        "vendedorId": null,
         "id": "12",
         "nombre":"Kiwi",
         "precio": 60,
@@ -100,6 +112,7 @@
     "fotoUrl": "https://www.superaki.mx/cdn/shop/collections/BOTANAS.jpg?v=1644603279",
     "productos": [
       {
+        "vendedorId": 1,
       "id": "13",
       "nombre":"Papa dorada",
       "precio": 52,
@@ -107,6 +120,7 @@
       "fotoUrl": "https://balu.com.mx/wp-content/uploads/2025/03/PAPA-DOR-150-2.png"
     },
     {
+      "vendedorId": null,
       "id": "14",
       "nombre":"Tostadas",
       "precio": 35,
@@ -114,6 +128,7 @@
       "fotoUrl": "https://images.radio-canada.ca/q_auto,w_952/v1/alimentation/ingredient/4x3/tostadas-mais.jpg"
     },
     {
+      "vendedorId": null,
       "id": "15",
       "nombre":"Taco dorado de papa",
       "precio": 5,
@@ -121,6 +136,7 @@
       "fotoUrl": "https://www.cardamomo.news/img/2022/06/21/tacos_de_papa.png?__scale=w:480,h:270,t:2"
     },
     {
+      "vendedorId": null,
       "id": "16",
       "nombre":"Churros de rueda",
       "precio": 25,
@@ -128,6 +144,7 @@
       "fotoUrl": "https://www.barriocampo.com/cdn/shop/products/Frituradeharinatrigominirueda.jpg?v=1587326851"
     },
     {
+      "vendedorId": null,
       "id": "17",
       "nombre":"Chicharron",
       "precio": 35,
@@ -135,6 +152,7 @@
       "fotoUrl": "https://cdnx.jumpseller.com/la-familia-avilena-envios/image/21232750/chicharrones.jpg?1655852635"
     },
     {
+      "vendedorId": null,
       "id": "18",
       "nombre":"Platano frito",
       "precio": 36,
@@ -148,6 +166,7 @@
     "fotoUrl": "https://www.kronen.eu/fileadmin/_processed_/7/5/csm_meat-fish-kronen-processing-machines_shutterstock_1920px_6ea5045a6e.jpg",
     "productos": [
       {
+        "vendedorId": 1,
       "id": "19",
       "nombre":"Filete de pechuga de pollo",
       "precio": 29,
@@ -155,6 +174,7 @@
       "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSYZFeQVARu1_dcQ6KOL01vPeUTkceZ3f-QA&s"
     },
     {
+      "vendedorId": null,
       "id": "20",
       "nombre":"Pierna y muslo de pollo",
       "precio": 70,
@@ -162,6 +182,7 @@
       "fotoUrl": "https://ramadamarket.com/wp-content/uploads/2020/11/Pierna-Muslo-3.jpg"
     },
     {
+      "vendedorId": null,
       "id": "21",
       "nombre":"Alas de pollo",
       "precio": 78,
@@ -169,6 +190,7 @@
       "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1vUlQ25EnQPtVe47tKBmReEaQ2iAHM4rznQ&s"
     },
     {
+      "vendedorId": null,
       "id": "22",
       "nombre":"Filete de tilapia",
       "precio": 150,
@@ -176,6 +198,7 @@
       "fotoUrl": "https://dcdn-us.mitiendanube.com/stores/003/861/864/products/filete-tilapia-1024x1024-003-c7483b9c026464185716986340125338-1024-1024.jpg"
     },
     {
+      "vendedorId": null,
       "id": "23",
       "nombre":"Camaron",
       "precio": 200,
@@ -183,6 +206,7 @@
       "fotoUrl": "https://www.ciad.mx/wp-content/uploads/2021/03/272-WEB-NOTA-2.jpg"
     },
     {
+      "vendedorId": null,
       "id": "24",
       "nombre":"Molida de pescado",
       "precio": 160,
@@ -196,6 +220,7 @@
     "fotoUrl": "https://dspclaherradura.com.mx/wp-content/uploads/2021/09/Beneficios-de-los-Frutos-Secos-para-los-Ninos.jpg",
     "productos": [
       {
+        "vendedorId": 1,
         "id": "25",
         "nombre":"Nuez",
         "precio": 250,
@@ -203,6 +228,7 @@
         "fotoUrl": "https://cdn.shopify.com/s/files/1/1699/9375/files/nueve-beneficios-de-la-nuez-pecan-1_1024x1024.jpg?v=1514127989"
       },
       {
+        "vendedorId": null,
         "id": "26",
         "nombre":"Pistaches",
         "precio": 210,
@@ -210,6 +236,7 @@
         "fotoUrl": "https://www.gob.mx/cms/uploads/article/main_image/59235/pistaches.jpg"
       },
       {
+        "vendedorId": null,
         "id": "27",
         "nombre":"Datiles",
         "precio": 170,
@@ -217,6 +244,7 @@
         "fotoUrl": "https://phantom-marca.unidadeditorial.es/3d94a34a9e0df5e88ec47da507a12efd/resize/828/f/jpg/assets/multimedia/imagenes/2023/11/11/16997232076831.jpg"
       },
       {
+        "vendedorId": null,
         "id": "28",
         "nombre":"Almendra",
         "precio": 180,
@@ -224,6 +252,7 @@
         "fotoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuDVtwKssnLoQ23aezCkXyaAodyFhMXapk8g&s"
       },
       {
+        "vendedorId": null,
         "id": "29",
         "nombre":"Cacahuate",
         "precio": 200,
@@ -231,6 +260,7 @@
         "fotoUrl": "https://static.wixstatic.com/media/10f5ce_e098d70585d24fad9a4c2921e02e02f1~mv2.jpg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/10f5ce_e098d70585d24fad9a4c2921e02e02f1~mv2.jpg"
       },
       {
+        "vendedorId": null,
         "id": "30",
         "nombre":"Uva pasa",
         "precio": 160,

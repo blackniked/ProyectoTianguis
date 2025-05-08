@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class LoginComponent {
   credenciales = {
-    email: '',
+    correo: '',
     password: ''
   };
 
