@@ -7,7 +7,7 @@ import { AuthResponse } from '../interfaces/auth-response';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://18.116.15.141/token/'; // URL de tu backend
+  private apiUrl = 'http://18.116.15.141'; // URL de tu backend
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +22,7 @@ export class AuthService {
 
   // Inicio de sesión
   login(credentials: any): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login/`, credentials).pipe(
+    return this.http.post<AuthResponse>(`${this.apiUrl}/token/`, credentials).pipe(
       tap(response => {
         localStorage.setItem('token', response.token); // Guardar el token
       })

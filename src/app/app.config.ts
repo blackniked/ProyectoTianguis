@@ -20,7 +20,7 @@ import { PedidosComponent } from './pages/pedidos/pedidos.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
-  { path: 'home', component: HomePageComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
+  { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] }, // Ruta protegida },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'perfil', component: PerfilComponent}, //canActivate: [AuthGuard] }, // Ruta protegida },
