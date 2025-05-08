@@ -7,7 +7,7 @@ import { AuthResponse } from '../interfaces/auth-response';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://tu-api-url.com/api'; // URL de tu backend
+  private apiUrl = 'http://18.116.15.141/token/'; // URL de tu backend
 
   constructor(private http: HttpClient) {}
 
