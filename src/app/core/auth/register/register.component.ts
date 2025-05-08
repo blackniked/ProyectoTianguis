@@ -16,10 +16,12 @@ export class RegisterComponent {
   usuario = {
     nombre: '',
     apellido: '',
-    fechaNacimiento: Date,
-    email: '',
+    correo: '',
     password: '',
-    esVendedor: false,
+    telefono: '',
+    direccion: '',
+    fecha_nacimiento: Date,
+    es_vendedor: false,
   };
 
   constructor(private authService: AuthService) {}

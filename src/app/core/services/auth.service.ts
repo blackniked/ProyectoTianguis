@@ -13,7 +13,7 @@ export class AuthService {
 
   // Registro de usuario
   register(userData: any): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/register/`, userData).pipe(
+    return this.http.post<AuthResponse>(`${this.apiUrl}/registro/`, userData).pipe(
       tap(response => {
         localStorage.setItem('token', response.token); // Guardar el token después de registrarse
       })
