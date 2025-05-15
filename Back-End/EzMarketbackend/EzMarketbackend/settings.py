@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9qxh$8%-6!e1bc7nf^@-&p-thmjv%kl_a8xew3m5q%_&jbxp@h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['18.116.15.141', 'ez-market.shop', 'www.ez-market.shop',]
+ALLOWED_HOSTS = ['18.116.15.141', 'ez-market.shop', 'www.ez-market.shop', '127.0.0.1',]
 
 
 # Application definition
