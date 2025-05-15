@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ventas.urls')), #Agregar las rutas siempre que cree un nuevo arhivo de urls en un nuevo folder para feature   
+    path('', views.home, name='home'), #Agregar la vista de home
 ]
