@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9qxh$8%-6!e1bc7nf^@-&p-thmjv%kl_a8xew3m5q%_&jbxp@h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['18.116.15.141',]
+ALLOWED_HOSTS = ['18.116.15.141', 'ez-market.shop', 'www.ez-market.shop',]
 
 
 # Application definition
@@ -44,6 +44,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+]
+
+MIDDLEWARE.insert(1, 'corsheaders.middleware.CorsMiddleware')
+
+CORS_ALLOWED_ORIGINS = [
+    "https://ez-market.shop",
 ]
 
 MIDDLEWARE = [
