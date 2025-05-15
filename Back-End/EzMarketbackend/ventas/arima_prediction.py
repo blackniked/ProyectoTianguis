@@ -17,17 +17,20 @@ def obtener_datos():
         
         consulta = """
              SELECT 
-                ped.fecha_pedido::date AS fecha,
-                prod.id_producto AS producto_id,
-                prod.nombre AS producto_nombre,
-                SUM(vp.cantidad) AS total
-            FROM ventas_pedido vp
-            JOIN productos prod ON vp.producto_id = prod.id_producto
-            JOIN pedidos ped ON vp.pedido_id = ped.id_pedido
-            GROUP BY fecha, prod.id_producto, prod.nombre
-            ORDER BY fecha;
+    ped.fecha_pedido::date AS fecha,
+    prod.id_producto AS producto_id,
+    prod.nombre AS producto_nombre,
+    SUM(vp.cantidad) AS total,
+    COUNT(*) AS cantidad_ventas
+FROM ventas_pedido vp
+JOIN productos prod ON vp.producto_id = prod.id_producto
+JOIN pedidos ped ON vp.pedido_id = ped.id_pedido
+GROUP BY fecha, prod.id_producto, prod.nombre
+ORDER BY fecha;
         """
         df = pd.read_sql_query(consulta, con=engine)
+        print("Datos obtenidos desde la base de datos:")
+        print(df)  # Muestra las primeras filas del DataFrame
         return df
     except Exception as e:
         print(f"Error al obtener datos de la base de datos: {e}")
@@ -54,7 +57,7 @@ def predecir_por_producto(df):
         datos.set_index('fecha', inplace=True)
         datos = datos.asfreq('D').fillna(0)
 
-        if len(datos) < 5:
+        if len(datos) < 3:
             print(f"Producto {nombre} tiene pocos datos para predecir.")
             continue  # Evitar productos con pocos datos
 
@@ -68,9 +71,9 @@ def predecir_por_producto(df):
 
         try:
             modelo = auto_arima(datos['total'], seasonal=False, stepwise=True, suppress_warnings=True)
-            resultado = modelo.fit(datos['total'])
-            forecast = resultado.forecast(steps=7).sum()
-            predicciones[nombre] = forecast
+            #resultado = modelo.fit(datos['total'])
+            forecast = modelo.predict(n_periods=7)
+            predicciones[nombre] = forecast.sum()
         except Exception as e:
             print(f"Error al predecir {nombre}: {e}")
 
@@ -90,9 +93,7 @@ def mostrar_grafica(df, nombre_producto):
     datos = datos.asfreq('D').fillna(0)
 
     modelo = auto_arima(datos['total'], seasonal=False, stepwise=True, suppress_warnings=True)
-    resultado = modelo.fit(datos['total'])
-
-    predicciones = resultado.forecast(steps=7)
+    predicciones = modelo.predict(n_periods=7)
     fechas_futuras = pd.date_range(start=datos.index[-1] + pd.Timedelta(days=1), periods=7)
 
     plt.figure(figsize=(12, 6))
