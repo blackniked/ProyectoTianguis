@@ -1,15 +1,10 @@
 <div class="estadisticas-container">
-    <h1>Estadísticas</h1>
+    <h1>En éste apartado puedes obtener una gráfica de predicción generada por nuestro algoritmo de mineria de datos ARIMA</h1>
     
-    <div class="articulo-mas-vendido">
-        <h2>Este es el artículo más vendido:</h2>
-        <p>{{ articuloMasVendido.nombre }}</p>
-        <p>Cantidad vendida: {{ articuloMasVendido.cantidadVendida }}</p>
-    </div>
+    
     
     <div class="grafica">
-        <h2>Gráfica de Ventas</h2>
-        <button (click)="generarPrediccion()">Generar predicciónes</button>
+        <button (click)="generarPrediccion()">Generar predicción</button>
         <a [href]="graficaUrl" download="grafica_prediccion.png">Descargar gráfica</a>
         <div *ngIf="graficaUrl">
             <img *ngIf="graficaUrl" [src]="graficaUrl" alt="Gráfica de predicción" style="max-width: 100%; height: auto;">

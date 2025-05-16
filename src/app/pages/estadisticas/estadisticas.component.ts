@@ -22,7 +22,7 @@ export class EstadisticasComponent {
   graficaUrl: string | null = null;
 
   ngOnInit(): void {
-    this.headerService.titulo.set("Ver estadisticas");
+    this.headerService.titulo.set("Ver Predicción");
   }
 
   generarPrediccion() {
