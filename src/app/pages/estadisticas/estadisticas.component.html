@@ -12,7 +12,7 @@
         <button (click)="generarPrediccion()">Generar predicciónes</button>
         <a [href]="graficaUrl" download="grafica_prediccion.png">Descargar gráfica</a>
         <div *ngIf="graficaUrl">
-            <img [src]="graficaUrl" alt="Gráfica de Predicción" />
+            <img *ngIf="graficaUrl" [src]="graficaUrl" alt="Gráfica de predicción" style="max-width: 100%; height: auto;">
         </div>
     </div>
 </div>

@@ -26,11 +26,10 @@ export class EstadisticasComponent {
   }
 
   generarPrediccion() {
-  this.http.get<{ img_base64: string }>('https://ez-market.shop/api/prediccion/')
-  return this.http.get<any>('https://ez-market.shop/api/prediccion/')
+  this.http.get<any>('https://ez-market.shop/api/prediccion/')
     .subscribe({
       next: res => {
-        this.graficaUrl = 'data:image/base64,' + res.img_base64;
+        this.graficaUrl = 'data:image/png;base64,' + res.img_base64;
       },
       error: err => {
         alert('Error al generar la predicción');
