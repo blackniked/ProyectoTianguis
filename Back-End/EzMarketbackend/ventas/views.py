@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 from django.urls import reverse
 from django.http import FileResponse, Http404, JsonResponse
-from .arima_prediction import obtener_datos, predecir_por_producto
+from .arima_prediction import obtener_datos, predecir_por_producto, mostrar_grafica
 
 
 # Create your views here.
@@ -260,13 +260,17 @@ class CheckoutView(APIView):
         return Response({"detail": "Pedido finalizado con exito."}, status=status.HTTP_200_OK)
     
 def ejecutar_prediccion(request):
-    # Obtener los datos desde la base de datos
     df = obtener_datos()
     if df is not None:
-        # Ejecutar la predicción
         try:
-            predecir_por_producto(df)
-            return JsonResponse({"message": "Predicción ejecutada correctamente. Revisa las gráficas generadas."}, status=200)
+            predicciones = predecir_por_producto(df)
+            # Si quieres una sola gráfica general:
+            grafica_base64 = mostrar_grafica(df, predicciones)
+            return JsonResponse({
+                "message": "Predicción ejecutada correctamente.",
+                "predicciones": predicciones,
+                "grafica": grafica_base64
+            }, status=200)
         except Exception as e:
             return JsonResponse({"error": f"Error al ejecutar la predicción: {str(e)}"}, status=500)
     else:

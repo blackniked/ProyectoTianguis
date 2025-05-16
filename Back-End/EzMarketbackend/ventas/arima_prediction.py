@@ -8,6 +8,8 @@ import psycopg2
 from sqlalchemy import create_engine
 from pmdarima import auto_arima
 from datetime import datetime, timedelta
+import io
+import base64
 
 # Obtener los datos desde PostgreSQL
 def obtener_datos():
@@ -84,6 +86,7 @@ def predecir_por_producto(df):
     prod_max = max(predicciones, key=predicciones.get)
     print(f"El producto con mayor demanda estimada en la proxima semana es: {prod_max}")
     mostrar_grafica(df, prod_max)
+    return predicciones
 
 #grafica para el producto con mayor prediccion
 def mostrar_grafica(df, nombre_producto):
@@ -108,6 +111,12 @@ def mostrar_grafica(df, nombre_producto):
     fecha_actual = datetime.now().strftime("%d-%m-%Y")
     plt.savefig(f"prediccion_{nombre_producto}_{fecha_actual}.png")
     plt.show()
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    plt.close()
+    buf.seek(0)
+    img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    return img_base64
 
 #Ejecución principal
 def main():
