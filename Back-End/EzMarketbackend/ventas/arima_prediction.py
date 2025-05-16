@@ -109,19 +109,23 @@ def mostrar_grafica(df, nombre_producto):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    fecha_actual = datetime.now().strftime("%d-%m-%Y")
-    #plt.savefig(f"prediccion_{nombre_producto}_{fecha_actual}.png")
-    nombre_archivo = f"grafica_prediccion_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+    plt.show()
+
+    # Guardar en disco
+    nombre_archivo = f"graficaprediccion{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
     ruta_carpeta = "graficas/"
     os.makedirs(ruta_carpeta, exist_ok=True)
     ruta_archivo = os.path.join(ruta_carpeta, nombre_archivo)
-    plt.show()
-    #buf = io.BytesIO()
     plt.savefig(ruta_archivo)
+
+    # Guardar en base64
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
     plt.close()
-    #buf.seek(0)
-    #img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-    return nombre_archivo
+    buf.seek(0)
+    img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+
+    return nombre_archivo, img_base64
 
 #Ejecución principal
 def main():
