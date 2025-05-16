@@ -2,23 +2,23 @@
     <h2>EzMarket VENDEDOR</h2>
     <div class="registrar-items">
         <h3>Registrar productos</h3>
-        <form>
-            <label for="nombreProducto">Nombre de producto:</label>
-            <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Ingresa el nombre del producto" required />
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+         <label for="nombreProducto">Nombre de producto:</label>
+        <input type="text" id="nombreProducto" name="nombreProducto" [(ngModel)]="producto.nombre" required />
 
-            <label for="precioProducto">Precio de producto:</label>
-            <input type="number" id="precioProducto" name="precioProducto" placeholder="Ingresa el precio del producto" required min="0" />
+        <label for="precioProducto">Precio de producto:</label>
+        <input type="number" id="precioProducto" name="precioProducto" [(ngModel)]="producto.precio" required min="0" />
 
-            <label for="descripcionProducto">Descripcion de producto:</label>
-            <textarea id="descripcionProducto" name="descripcionProducto" placeholder="Ingresa la descripcion del producto" style="resize: none;"></textarea>
+        <label for="descripcionProducto">Descripcion de producto:</label>
+        <textarea id="descripcionProducto" name="descripcionProducto" [(ngModel)]="producto.descripcion"></textarea>
 
-            <label for="pesoProducto">Peso promedio (grs):</label>
-            <input type="number" id="pesoProducto" name="pesoProducto" placeholder="Ingresa el peso promedio del producto en gramos" required min="0" />
+         <label for="pesoProducto">Peso promedio (grs):</label>
+        <input type="number" id="pesoProducto" name="pesoProducto" [(ngModel)]="producto.peso" required min="0" />
 
-            <label for="piezasProducto">Cantidad de piezas de producto:</label>
-            <input type="number" id="piezasProducto" name="piezasProducto" placeholder="Ingresa la cantidad de piezas a registrar" required min="0" />
+        <label for="piezasProducto">Cantidad de piezas de producto:</label>
+        <input type="number" id="piezasProducto" name="piezasProducto" [(ngModel)]="producto.piezas" required min="0" />
 
-            <button type="submit">Agregar producto</button>
+        <button type="submit">Agregar producto</button>
         </form>
     </div>
 </div>

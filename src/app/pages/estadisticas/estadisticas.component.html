@@ -9,6 +9,9 @@
     
     <div class="grafica">
         <h2>Gráfica de Ventas</h2>
-        <img src="ruta/a/tu/imagen-de-grafica.png" alt="Gráfica de Ventas" />
+        <button (click)="generarPrediccion()">Generar predicciónes</button>
+        <div *ngIf="graficaUrl">
+            <img [src]="graficaUrl" alt="Gráfica de Predicción" />
+        </div>
     </div>
 </div>

@@ -25,13 +25,19 @@ export class LoginComponent {
   //Aqui se inician los services
   ngOnInit(): void {
     this.headerService.titulo.set("Iniciar Sesión");
-}
+  }
+
   login() {
-    this.authService.login(this.credenciales).subscribe(response => {
-      console.log('Inicio de sesión exitoso', response);
-      localStorage.setItem('token', response.token); // Guardar el token
-    }, error => {
-      console.error('Error en el login', error);
+    this.authService.login(this.credenciales).subscribe({
+      next: response => {
+        console.log('Inicio de sesión exitoso', response);
+        localStorage.setItem('token', response.token); // Guardar el token
+        // Aquí puedes redirigir o mostrar mensaje de éxito
+      },
+      error: error => {
+        console.error('Error en el login', error);
+        // Aquí puedes mostrar un mensaje de error al usuario
+      }
     });
   }
 }

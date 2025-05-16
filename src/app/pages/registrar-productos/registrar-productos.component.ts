@@ -1,19 +1,36 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { HeaderService } from '../../core/services/header.service';
+import { Component, inject } from '@angular/core';
+import { ProductosService } from '../../core/services/productos.service';
+import { RegistroProdsService } from '../../core/services/registroprods.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registrar-productos',
-  standalone: true,
-  imports: [],
   templateUrl: './registrar-productos.component.html',
-  styleUrl: './registrar-productos.component.css'
+  styleUrl: './registrar-productos.component.css',
+  standalone: true,
+  imports: [FormsModule]
 })
 export class RegistrarProductosComponent {
-//Aqui se inyectan los service
-  headerService = inject(HeaderService);
+  productosService = inject(RegistroProdsService);
 
-  //Aqui se inician los services
-  ngOnInit(): void {
-    this.headerService.titulo.set("Registrar Productos");
-}
+  producto = {
+    nombre: '',
+    precio: null,
+    descripcion: '',
+    peso: null,
+    piezas: null
+  };
+
+  onSubmit() {
+    this.productosService.registrarProducto({
+      nombre: this.producto.nombre,
+      precio: this.producto.precio,
+      descripcion: this.producto.descripcion,
+      peso: this.producto.peso,
+      piezas: this.producto.piezas
+    }).subscribe({
+      next: res => alert('Producto registrado exitosamente'),
+      error: err => alert('Error al registrar producto')
+    });
+  }
 }
