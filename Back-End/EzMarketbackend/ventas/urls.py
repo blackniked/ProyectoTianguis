@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenBlacklistView
-from .views import UsuarioViewSet, ProductoViewSet, VentaPedidoViewSet, RegistroUsuarioView, CarritoView, CheckoutView, descargar_ticket, ejecutar_prediccion
+from .views import UsuarioViewSet, ProductoViewSet, VentaPedidoViewSet, RegistroUsuarioView, CarritoView, CheckoutView, descargar_ticket, ejecutar_prediccion, descargar_grafica
 
 # Configurar rutas con ViewSets
 # Cada vez que haga un nuevo viewset debo de agregarlo aqui
@@ -25,6 +25,7 @@ urlpatterns = [
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('descargar-ticket/<int:pedido_id>/', descargar_ticket, name='descargar_ticket'),
     path('api/prediccion/', ejecutar_prediccion, name='ejecutar_prediccion'),
+    path('descargar_grafica/<str:nombre_archivo>/', descargar_grafica, name='descargar_grafica'),
     #path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     #path('vista-segura/', vistaSegura, name='vista_segura'),
     #path('registro/', RegistroView.as_view(), name='registro'),

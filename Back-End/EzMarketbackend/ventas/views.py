@@ -258,18 +258,29 @@ class CheckoutView(APIView):
         pedidos.update(estado_pedido='Enviado')
 
         return Response({"detail": "Pedido finalizado con exito."}, status=status.HTTP_200_OK)
-    
+
+def descargar_grafica(request, nombre_archivo):
+    ruta_archivo = os.path.join("graficas", nombre_archivo)
+    if not os.path.exists(ruta_archivo):
+        raise Http404("La gráfica no existe.")
+    response = FileResponse(open(ruta_archivo, 'rb'), content_type='image/png')
+    response['Content-Disposition'] = f'attachment; filename="{nombre_archivo}"'
+    return response
+
+
 def ejecutar_prediccion(request):
     df = obtener_datos()
     if df is not None:
         try:
             predicciones = predecir_por_producto(df)
-            # Si quieres una sola gráfica general:
-            grafica_base64 = mostrar_grafica(df, predicciones)
+            nombre_archivo = mostrar_grafica(df, predicciones)
+            url_descarga = request.build_absolute_uri(
+                reverse('descargar_grafica', args=[nombre_archivo])
+            )
             return JsonResponse({
                 "message": "Predicción ejecutada correctamente.",
                 "predicciones": predicciones,
-                "grafica": grafica_base64
+                "grafica_url": url_descarga
             }, status=200)
         except Exception as e:
             return JsonResponse({"error": f"Error al ejecutar la predicción: {str(e)}"}, status=500)

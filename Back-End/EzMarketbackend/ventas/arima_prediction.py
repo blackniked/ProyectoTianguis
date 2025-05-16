@@ -10,6 +10,7 @@ from pmdarima import auto_arima
 from datetime import datetime, timedelta
 import io
 import base64
+import os
 
 # Obtener los datos desde PostgreSQL
 def obtener_datos():
@@ -109,14 +110,18 @@ def mostrar_grafica(df, nombre_producto):
     plt.grid(True)
     plt.tight_layout()
     fecha_actual = datetime.now().strftime("%d-%m-%Y")
-    plt.savefig(f"prediccion_{nombre_producto}_{fecha_actual}.png")
+    #plt.savefig(f"prediccion_{nombre_producto}_{fecha_actual}.png")
+    nombre_archivo = f"grafica_prediccion_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+    ruta_carpeta = "graficas/"
+    os.makedirs(ruta_carpeta, exist_ok=True)
+    ruta_archivo = os.path.join(ruta_carpeta, nombre_archivo)
     plt.show()
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png')
+    #buf = io.BytesIO()
+    plt.savefig(ruta_archivo)
     plt.close()
-    buf.seek(0)
-    img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-    return img_base64
+    #buf.seek(0)
+    #img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    return nombre_archivo
 
 #Ejecución principal
 def main():
