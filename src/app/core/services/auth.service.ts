@@ -21,14 +21,20 @@ export class AuthService {
   }
 
   // Inicio de sesión
+// ...existing code...
 login(credentials: any): Observable<AuthResponse> {
-  return this.http.post<AuthResponse>(`${this.apiUrl}/token/`, credentials).pipe(   //Aqui cambie token por usuarios
+  return this.http.post<any>(`${this.apiUrl}/token/`, credentials).pipe(
     tap(response => {
-      console.log('Respuesta del login:', response); // <-- Agrega esto
-      localStorage.setItem('token', response.token); // Guardar el token
-      console.log('Token guardado:', localStorage.getItem('token')); // <-- Y esto
+      if (response.access) {
+        localStorage.setItem('token', response.access); // Guardar solo el access token
+      } else {
+        console.error('No se recibió access token en la respuesta');
+      }
+      console.log('Respuesta del login:', response);
+      console.log('Token guardado:', localStorage.getItem('token'));
     })
   );
 }
+// ...existing code...
 
 }
