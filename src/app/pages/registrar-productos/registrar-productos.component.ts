@@ -15,10 +15,12 @@ export class RegistrarProductosComponent {
 
   producto = {
     nombre: '',
-    precio: null,
     descripcion: '',
+    precio: null,
     peso: null,
-    piezas: null
+    piezas: null,
+    stock: null,    // Nuevo campo
+    usuario: null
   };
 
   onSubmit() {
@@ -27,7 +29,9 @@ export class RegistrarProductosComponent {
       precio: this.producto.precio,
       descripcion: this.producto.descripcion,
       peso: this.producto.peso,
-      piezas: this.producto.piezas
+      piezas: this.producto.piezas,
+      stock: this.producto.stock,
+      usuario: this.producto.usuario
     }).subscribe({
       next: res => alert('Producto registrado exitosamente'),
       error: err => alert('Error al registrar producto')
