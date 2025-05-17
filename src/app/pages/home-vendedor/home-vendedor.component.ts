@@ -19,8 +19,8 @@ export class HomeVendedorComponent {
 //Aqui se inyectan los service
   headerService = inject(HeaderService);
 usuario: Usuario = {
-  id: 1,
-  nombre: 'Juan Perez',
+  id: 2,
+  nombre: 'Alberto Lopez',
 }
 
   //Aqui se inician los services
