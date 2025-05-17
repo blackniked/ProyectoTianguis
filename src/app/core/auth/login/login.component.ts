@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { HeaderService } from '../../services/header.service';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -18,7 +19,7 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 //Aqui se inyectan los service
   headerService = inject(HeaderService);
 
@@ -31,7 +32,9 @@ export class LoginComponent {
     this.authService.login(this.credenciales).subscribe({
       next: response => {
         console.log('Inicio de sesión exitoso', response);
-        localStorage.setItem('token', response.token); // Guardar el token
+        if (response.access) {
+        localStorage.setItem('token', response.access);} // Guardar el token
+        this.router.navigate(['/home']);
         // Aquí puedes redirigir o mostrar mensaje de éxito
       },
       error: error => {
