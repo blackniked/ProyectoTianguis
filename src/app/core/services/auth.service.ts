@@ -7,7 +7,7 @@ import { AuthResponse } from '../interfaces/auth-response';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://18.116.15.141'; // URL de tu backend
+  private apiUrl = 'https://ez-market.shop'; // URL de tu backend
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +22,7 @@ export class AuthService {
 
   // Inicio de sesión
 login(credentials: any): Observable<AuthResponse> {
-  return this.http.post<AuthResponse>(`${this.apiUrl}/usuarios/`, credentials).pipe(   //Aqui cambie token por usuarios
+  return this.http.post<AuthResponse>(`${this.apiUrl}/token/`, credentials).pipe(   //Aqui cambie token por usuarios
     tap(response => {
       console.log('Respuesta del login:', response); // <-- Agrega esto
       localStorage.setItem('token', response.token); // Guardar el token
